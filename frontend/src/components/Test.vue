@@ -1,0 +1,301 @@
+<template>
+  <div class="body">
+    <div class="content">
+      <div class="progress-container">
+        <el-progress :percentage="percent"></el-progress>
+      </div>
+      <div style="display: flex;justify-content: center;">
+        <problems :graphname="images[current]" :rectInfos="rectangleInfo" />
+        <div class="main-container">
+          <div class="graph-container"></div>
+          <div class="control-container">
+            <div class="button-container">
+              <input type="button" id="redo" class="button" value="Redo" @click="redo();">
+              <input type="button" id="next" class="button" value="Submit" @click="openMes();">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import * as d3 from "d3"
+import axios from '../assets/js/http'
+import problems from './Problems.vue'
+export default {
+  name: 'Test',
+  props: {
+  },
+  components:{ problems },
+  data() {
+    return {
+      images: [],
+      current: 0,
+      width: null,
+      height: null,
+      svg: null,
+      svgWidth: null,
+      svgHeight: null,
+      second: 40,
+      interval: null,
+      percentage: 0,
+      rectangleInfo: [],
+      testNum: 6
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.setContainerSize();
+      this.initImages();
+      this.shuffle(this.images);
+      this.loadSvg();
+    })
+  },
+  methods: {
+    initImages() {
+      this.images = [
+        
+        'les.svg',
+        'quakers.svg',
+        'strike.svg',
+        'karate.svg',
+        'football.svg',
+        'got.svg']
+    },
+    setContainerSize() {
+      let screenWidth = document.documentElement.clientWidth ||  document.body.clientWidth;
+      let screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      document.querySelector(".graph-container").style.height = screenHeight * 0.68 + "px";
+    },
+    initInterval() { // 倒计时
+      this.second = 40;
+      this.interval = setInterval(() => {
+        if(this.second <= 0) {
+          this.next();
+          return;
+        }
+        // this.second -= 1;
+        this.second = (this.second - 0.1).toFixed(1)
+      }, 100)
+    },
+    getSize() {
+      let parentNode = document.querySelector(".graph-container");
+      this.width = parentNode.clientWidth;
+      this.height = parentNode.clientHeight;
+    },
+    shuffle(arr) {
+      let iLength = arr.length,
+          i = iLength,
+          mTemp,
+          iRandom;
+      while(i--){
+          if(i !== (iRandom = Math.floor(Math.random() * iLength))){
+              mTemp = arr[i];
+              arr[i] = arr[iRandom];
+              arr[iRandom] = mTemp;
+          }
+      }
+      return arr;
+    },
+    loadSvg() {
+      let _this = this;
+      this.getSize();
+      d3.xml(_this.imagePath).then(function(xml) {
+        document.querySelector(".graph-container").appendChild(xml.documentElement);
+        _this.svg = d3.select(".graph-container svg");
+        let svgrect = d3.select("rect");
+        let svgWidth = _this.svg.attr("width");
+        let svgHeight = _this.svg.attr("height");
+        let margin = {left: 20, right: 20, top: 20, bottom: 20}
+        let scaleNumber = d3.min([(_this.width - margin.left - margin.right) / svgWidth, (_this.height - margin.top - margin.bottom) / svgHeight]);
+        _this.svgWidth = svgWidth * scaleNumber;
+        _this.svgHeight = svgHeight * scaleNumber;
+        _this.svg.attr("width", _this.svgWidth)
+        .attr("height", _this.svgHeight)
+        .style("position", "absolute")
+        .style("left", (_this.width - _this.svgWidth) / 2 + "px")
+        .style("top", (_this.height - _this.svgHeight) / 2 + "px");
+        
+        svgrect.attr("width", _this.svgWidth)
+        .attr("height", _this.svgHeight)
+        
+        //d3.select("g").attr("transform","translate("+_this.svgWidth/3+","+_this.svgHeight/4+") scale("+scaleNumber+","+(-scaleNumber)+")")
+        
+        // _this.initInterval();
+        // document.querySelector("#second").style.visibility="visible";
+        document.querySelector("#redo").removeAttribute("disabled");
+        document.querySelector("#next").removeAttribute("disabled");
+        _this.drawRectangle();
+      });
+    },
+    drawRectangle() {
+      /**
+       * 框选数据
+       */
+      this.svg.append("g")
+        .attr("class", "brush")
+        .call(d3.brush().on("end", brushended));
+
+      this.svg.append("g")
+        .attr("class", "rectangles");
+
+      let _this = this;
+      function brushended() {
+        var s = d3.event.selection;
+        console.log(s)
+        if(s) {
+          d3.select("g.rectangles").append("rect")
+          .attr("x", s[0][0])
+          .attr("y", s[0][1])
+          .attr("width", s[1][0] - s[0][0])
+          .attr("height", s[1][1] - s[0][1])
+          .style("fill", "#777")
+          .style("fill-opacity", 0.3)
+          .style("stroke", "#fff");
+
+          _this.rectangleInfo.push({
+            name: _this.imageName,
+            x1: s[0][0],
+            y1: s[0][1],
+            x2: s[1][0],
+            y2: s[1][1]
+          })
+
+          d3.selectAll("ellipse").nodes().forEach(d => {
+            let circle = d3.select(d);
+            let x = parseFloat(circle.attr("cx"));
+            let y = parseFloat(circle.attr("cy"));
+            
+            if(x > s[0][0] && x < s[1][0] && y > s[0][1] && y < s[1][1]) {
+              circle.classed("selected", true);
+            }
+          })
+        }
+      }
+    },
+    openMes() {
+      this.$confirm("是否完成所有任务进入下一个数据集？", '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+      }).then(() => {
+          this.next();
+      }).catch(() => {     
+      });
+    },
+    next() {
+      console.log(this.current)
+      this.rectangleInfo = [];
+      clearInterval(this.interval);
+      this.percentage += (100 / this.testNum);
+      if (this.percentage > 100) {
+        this.percentage = 100;
+      }
+      if(this.current >= this.testNum-1) {
+        setTimeout(() => {
+          this.$router.push({ name: 'home', params: { msg: 'test' }});
+        }, 1000)
+        return;
+      } else {
+        this.current += 1;
+        d3.select(".graph-container").selectAll("svg").remove();
+        // document.querySelector("#second").style.visibility = "hidden";
+        document.querySelector("#redo").disabled = "disabled"
+        document.querySelector("#next").disabled = "disabled"
+        setTimeout(() => {
+          this.loadSvg();
+        }, 2000)
+      }
+    },
+    redo() {
+      let rects = d3.select(".graph-container .rectangles").selectAll("rect").nodes();
+      d3.select(rects[rects.length - 1]).remove();
+      d3.select(".graph-container .brush").remove();
+      // d3.selectAll("circle").classed("selected", false)
+      if(this.rectangleInfo.length > 0) {
+        let rectangle = this.rectangleInfo[this.rectangleInfo.length-1];
+        this.rectangleInfo.splice(this.rectangleInfo.length-1, 1);
+        d3.selectAll("ellipse").nodes().forEach(d => {
+          let circle = d3.select(d);
+          let x = parseFloat(circle.attr("cx"));
+          let y = parseFloat(circle.attr("cy"));
+          if(x > rectangle.x1 && x < rectangle.x2 && y > rectangle.y1 && y < rectangle.y2) {
+            circle.classed("selected", false);
+          }
+        })
+      }
+      this.drawRectangle();
+    }
+  },
+  computed: {
+    imagePath: function() {
+      return "static/images/" + this.images[this.current];
+    },
+    imageName: function() {
+      let arr = this.imagePath.split("/");
+      return arr[arr.length-1];
+    },
+    percent: function() {
+      if(this.percentage >= 100) {
+        return 100;
+      } else {
+        return Math.floor(this.percentage);
+      }
+    },
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.body {
+  width: 100%;
+}
+.content {
+  width: 100%;
+}
+.progress-container {
+  text-align: center;
+}
+#second {
+  position: absolute;
+  left: 33%;
+  top: 7%;
+  font-size: 30px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.main-container{
+  width: 60%;
+}
+.graph-container {
+  width: 80%;
+  height: 720px;
+  margin: 3% auto;
+  border: 1px solid black;
+  position: relative;
+}
+.graph-container >>> .selected {
+ fill: red;
+}
+.button-container {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+.button {
+  width: 100px;
+  height: 50px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+#redo {
+  float: left;
+}
+#next {
+  float: right;
+}
+</style>
