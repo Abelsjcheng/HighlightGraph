@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div class="header">
-      <span><a href="/">Evaluation System</a></span>
-      <el-button style="float:right;margin-top:10px;margin-right: 1%;" round @click="signout">Sign out </el-button>
+      <span><a href="/">Graph Sampling</a></span>
     </div>
-    <router-view></router-view>  </div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
@@ -25,18 +25,8 @@ export default {
   beforeDestroy() {
     axios.get('/signout/')
       .then(response => {
+        
       })
-  },
-  methods: {
-    signout() {
-      axios.get('/signout/')
-        .then(response => {
-          if(response.data == 'OK') {
-            alert("sign out")
-            window.location.href="/";
-          }
-        })
-    }
   }
 }
 </script>
@@ -64,9 +54,6 @@ html, body {
   color: white;
   margin-left: 1%;
   text-decoration: none;
-}
-.signout{
-  float: right;
 }
 /* .graph_img {
   border: black solid 1px;

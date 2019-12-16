@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="22.2621" height="13.5697" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 32.2621 23.5697" version="1.1">
+<svg width="22.2621" height="13.5697" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio = "none" viewbox="0 0 32.2621 23.5697" version="1.1">
     <rect width="22.2621" height="13.5697" fill="rgb(255,255,255)"/>
     <g desc="Graph" transform="translate(15.5,-2.93026) scale(1,-1)">
         <g id="Edges" desc="This is the group of edges">

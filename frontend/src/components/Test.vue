@@ -4,16 +4,12 @@
       <div class="progress-container">
         <el-progress :percentage="percent"></el-progress>
       </div>
-      <div style="display: flex;justify-content: center;">
-        <problems :graphname="images[current]" :rectInfos="rectangleInfo" />
-        <div class="main-container">
-          <div class="graph-container"></div>
-          <div class="control-container">
-            <div class="button-container">
-              <input type="button" id="redo" class="button" value="Redo" @click="redo();">
-              <input type="button" id="next" class="button" value="Submit" @click="openMes();">
-            </div>
-          </div>
+      <p id="second">{{second}} S</p>
+      <div class="graph-container"></div>
+      <div class="control-container">
+        <div class="button-container">
+          <input type="button" id="redo" class="button" value="Redo" @click="redo();">
+          <input type="button" id="next" class="button" value="Submit" @click="next();">
         </div>
       </div>
     </div>
@@ -23,12 +19,10 @@
 <script>
 import * as d3 from "d3"
 import axios from '../assets/js/http'
-import problems from './Problems.vue'
 export default {
   name: 'Test',
   props: {
   },
-  components:{ problems },
   data() {
     return {
       images: [],
@@ -42,7 +36,7 @@ export default {
       interval: null,
       percentage: 0,
       rectangleInfo: [],
-      testNum: 6
+      testNum: 5,
     }
   },
   mounted() {
@@ -55,30 +49,100 @@ export default {
   },
   methods: {
     initImages() {
+      // this.images = [
+      //   'r-airline', 'r-cpanA', 'r-lesmiserable', 'r-us-air',
+      //   's-celegans', 's-codeminder1', 's-codeminder2', 's-codeminder3', 's-codeminder4', 's-codeminder5',
+      //   's-eurosis', 'si-simulation1', 'si-simulation2', 'si-simulation3', 'si-simulation4', 'si-simulation5',
+      //   's-jazz', 's-karate', 's-spdata', 's-us-air2', 'simulation6', 'simulation7', 'simulation8', 'simulation9',
+      //   'simulation10', 'simulation11', 'simulation12', 'simulation13', 'simulation14', 'simulation15', 'simulation16',
+      //   'simulation17', 'simulation18', 'simulation19', 'simulation20', 'simulation21', 'simulation22', 'simulation23',
+      //   'simulation24', 'simulation25', 'simulation26', 'simulation27', 'simulation28', 'simulation29', 'simulation30'
+      // ]
       this.images = [
-        
-        'les.svg',
-        'quakers.svg',
-        'strike.svg',
+        'airline.svg',
+        'America_Collage_football.svg',
+        'celegans.svg',
+        'codeminder1.svg',
+        'codeminder2.svg',
+        'codeminder3.svg',
+        'codeminder4.svg',
+        'codeminder5.svg',
+        'cond_2003_1.svg',
+        'cond_2003_2.svg',
+        'cond_2003_3.svg',
+        'cond_2003_4.svg',
+        'cond_2003_5.svg',
+        'cond_2003_6.svg',
+        'cond_2005_1.svg',
+        'cond_2005_2.svg',
+        'cond_2005_3.svg',
+        'cond_2005_4.svg',
+        'cond_mat.svg',
+        'cond_mat2.svg',
+        'cond_mat3.svg',
+        'cond_mat4.svg',
+        'cond_mat5.svg',
+        'cond_mat6.svg',
+        'cond_mat7.svg',
+        'cpanA.svg',
+        'Dolphin_Social_Network.svg',
+        'eurosis.svg',
+        'GRCite.svg',
+        'jazz.svg',
         'karate.svg',
-        'football.svg',
-        'got.svg']
+        'lesmiserable.svg',
+        'Neural_network.svg',
+        'pkrgraph.svg',
+        'polbook.svg',
+        'Political_blogs.svg',
+        'simulation1.svg',
+        'simulation10.svg',
+        'simulation11.svg',
+        'simulation12.svg',
+        'simulation13.svg',
+        'simulation14.svg',
+        'simulation15.svg',
+        'simulation16.svg',
+        'simulation17.svg',
+        'simulation18.svg',
+        'simulation19.svg',
+        'simulation2.svg',
+        'simulation20.svg',
+        'simulation21.svg',
+        'simulation22.svg',
+        'simulation23.svg',
+        'simulation24.svg',
+        'simulation25.svg',
+        'simulation26.svg',
+        'simulation27.svg',
+        'simulation28.svg',
+        'simulation29.svg',
+        'simulation3.svg',
+        'simulation30.svg',
+        'simulation4.svg',
+        'simulation5.svg',
+        'simulation6.svg',
+        'simulation7.svg',
+        'simulation8.svg',
+        'simulation9.svg',
+        'spdata.svg',
+        'us-air.svg',
+        'us-air2.svg']
     },
     setContainerSize() {
       let screenWidth = document.documentElement.clientWidth ||  document.body.clientWidth;
       let screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
       document.querySelector(".graph-container").style.height = screenHeight * 0.68 + "px";
     },
-    initInterval() { // 倒计时
+    initInterval() {
       this.second = 40;
       this.interval = setInterval(() => {
         if(this.second <= 0) {
           this.next();
           return;
         }
-        // this.second -= 1;
-        this.second = (this.second - 0.1).toFixed(1)
-      }, 100)
+        this.second -= 1;
+      }, 1000)
     },
     getSize() {
       let parentNode = document.querySelector(".graph-container");
@@ -105,7 +169,6 @@ export default {
       d3.xml(_this.imagePath).then(function(xml) {
         document.querySelector(".graph-container").appendChild(xml.documentElement);
         _this.svg = d3.select(".graph-container svg");
-        let svgrect = d3.select("rect");
         let svgWidth = _this.svg.attr("width");
         let svgHeight = _this.svg.attr("height");
         let margin = {left: 20, right: 20, top: 20, bottom: 20}
@@ -117,14 +180,8 @@ export default {
         .style("position", "absolute")
         .style("left", (_this.width - _this.svgWidth) / 2 + "px")
         .style("top", (_this.height - _this.svgHeight) / 2 + "px");
-        
-        svgrect.attr("width", _this.svgWidth)
-        .attr("height", _this.svgHeight)
-        
-        //d3.select("g").attr("transform","translate("+_this.svgWidth/3+","+_this.svgHeight/4+") scale("+scaleNumber+","+(-scaleNumber)+")")
-        
-        // _this.initInterval();
-        // document.querySelector("#second").style.visibility="visible";
+        _this.initInterval();
+        document.querySelector("#second").style.visibility="visible";
         document.querySelector("#redo").removeAttribute("disabled");
         document.querySelector("#next").removeAttribute("disabled");
         _this.drawRectangle();
@@ -163,7 +220,7 @@ export default {
             y2: s[1][1]
           })
 
-          d3.selectAll("ellipse").nodes().forEach(d => {
+          d3.selectAll("circle").nodes().forEach(d => {
             let circle = d3.select(d);
             let x = parseFloat(circle.attr("cx"));
             let y = parseFloat(circle.attr("cy"));
@@ -174,16 +231,6 @@ export default {
           })
         }
       }
-    },
-    openMes() {
-      this.$confirm("是否完成所有任务进入下一个数据集？", '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-      }).then(() => {
-          this.next();
-      }).catch(() => {     
-      });
     },
     next() {
       console.log(this.current)
@@ -201,7 +248,7 @@ export default {
       } else {
         this.current += 1;
         d3.select(".graph-container").selectAll("svg").remove();
-        // document.querySelector("#second").style.visibility = "hidden";
+        document.querySelector("#second").style.visibility = "hidden";
         document.querySelector("#redo").disabled = "disabled"
         document.querySelector("#next").disabled = "disabled"
         setTimeout(() => {
@@ -217,7 +264,7 @@ export default {
       if(this.rectangleInfo.length > 0) {
         let rectangle = this.rectangleInfo[this.rectangleInfo.length-1];
         this.rectangleInfo.splice(this.rectangleInfo.length-1, 1);
-        d3.selectAll("ellipse").nodes().forEach(d => {
+        d3.selectAll("circle").nodes().forEach(d => {
           let circle = d3.select(d);
           let x = parseFloat(circle.attr("cx"));
           let y = parseFloat(circle.attr("cy"));
@@ -231,7 +278,7 @@ export default {
   },
   computed: {
     imagePath: function() {
-      return "static/images/" + this.images[this.current];
+      return "/static/images/" + this.images[this.current];
     },
     imageName: function() {
       let arr = this.imagePath.split("/");
@@ -261,18 +308,14 @@ export default {
 }
 #second {
   position: absolute;
-  left: 33%;
-  top: 7%;
+  left: 5%;
+  top: 12%;
   font-size: 30px;
   font-weight: bold;
   color: #ccc;
 }
-
-.main-container{
-  width: 60%;
-}
 .graph-container {
-  width: 80%;
+  width: 70%;
   height: 720px;
   margin: 3% auto;
   border: 1px solid black;

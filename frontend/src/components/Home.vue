@@ -16,18 +16,11 @@
             <p class="number" @click="toTest();">2</p>
           </div>
           <div class="progress">
-            <el-progress :show-text="false" :stroke-width="20" :percentage="Study_percentage" color="#ccc"></el-progress>
-          </div>
-          <div class="circle-container">
-            <div class="circle" @click="toStudy();"></div>
-            <p class="number" @click="toStudy();">L</p>
-          </div>
-          <div class="progress">
             <el-progress :show-text="false" :stroke-width="20" :percentage="test_percentage" color="#ccc"></el-progress>
           </div>
           <div class="circle-container">
-            <div class="circle" @click="toSelectGraph();"></div>
-            <p class="number" @click="toSelectGraph();">3</p>
+            <div class="circle" @click="toExperiment();"></div>
+            <p class="number" @click="toExperiment();">3</p>
             <!-- <div>
                 <select @change="changeExperiment();">
                     <option value="1">A</option>
@@ -41,7 +34,7 @@
           </div>
           <div class="circle-container">
             <div class="circle" @click="toHeatmap();"></div>
-            <p class="number" @click="toHeatmap();">H</p>
+            <p class="number" @click="toHeatmap();">E</p>
           </div>
         </div>
       </div>
@@ -51,7 +44,7 @@
       :visible.sync="dialogVisible"
       width="60%"
       :show-close="false">
-      <el-form size="medium" label-position="left" :model="form" :rules="rules" ref="ruleForm" label-width="110px" class="demo-ruleForm">
+      <el-form size="medium" label-position="left" :model="form" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
         <el-form-item label="Name" prop="name">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
@@ -75,12 +68,6 @@
         <el-form-item label="Research" prop="research">
           <el-input v-model="form.research"></el-input>
         </el-form-item>
-        <el-form-item label="Background" prop="background">
-          <el-radio-group v-model="form.background">
-            <el-radio label="1">YES</el-radio>
-            <el-radio label="0">NO</el-radio>
-          </el-radio-group>
-        </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm('ruleForm')">Register</el-button>
           <el-button @click="resetForm('ruleForm')">Reset</el-button>
@@ -100,8 +87,7 @@ export default {
   data() {
     return {
 			intro_percentage: 0,
-      test_percentage: 0,
-      Study_percentage: 0,
+			test_percentage: 0,
 			experiment_percentage: 0,
       dialogVisible: false,
       form: {
@@ -109,8 +95,7 @@ export default {
         education: '',
         age: '',
         sex: '',
-        research: '',
-        background: ''
+        research: ''
       },
       rules: {
         name: [
@@ -131,9 +116,6 @@ export default {
         ],
         research: [
           { required: true, message: 'please input research derection', trigger: 'blur' }
-        ],
-        background: [
-          { required: true, message: 'please select background', trigger: 'change' }
         ]
       }
     }
@@ -141,25 +123,20 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.isLogged();
-      let msg = this.$route.params.msg; // 接收路由参数
+      let msg = this.$route.params.msg;
       switch (msg) {
         case 'intro':
           this.intro_percentage = 100;
           break;
         case 'test':
           this.intro_percentage = 100;
-          this.Study_percentage = 100;
-          break;
-        case 'study':
-          this.intro_percentage = 100;
-          this.Study_percentage = 100;
           this.test_percentage = 100;
           break;
         case 'expertment':
           this.intro_percentage = 100;
-          this.Study_percentage = 100;
           this.test_percentage = 100;
           this.experiment_percentage = 100;
+          this.signout();
           break;
         default:
           break;
@@ -176,23 +153,16 @@ export default {
 				alert("请按序操作...")
 				return;
 			}
-			this.$router.push('/Test');
+			this.$router.push('/test');
 		},
-    toStudy() {
-      this.$router.push('/Study');
-    },
-    toSelectGraph() {
-      if( this.test_percentage == 0 ) {
+		toExperiment() {
+			if(this.intro_percentage == 0 || this.test_percentage == 0) {
 				alert("请按序操作...")
 				return;
 			}
-      this.$router.push('/SelectGraph');
+			this.$router.push('/nodelink');
     },
     toHeatmap() {
-      // if( this.experiment_percentage == 0 ) {
-			// 	alert("请按序操作...")
-			// 	return;
-			// }
       this.$router.push('/heatmap');
     },
     submitForm(formName) {
@@ -202,7 +172,6 @@ export default {
             .then(response => {
               if(response.data == 'OK') {
                 this.dialogVisible = false;
-                this.$store.commit("setBackground",this.form.background);
                 alert('success');
               } else if(response.data == 'fail') {
                 alert('The user already exists');
@@ -219,10 +188,17 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
+    signout() {
+      axios.get('/signout/')
+        .then(response => {
+          if(response.data == 'OK') {
+            // alert("sign out")
+          }
+        })
+    },
     isLogged() {
       axios.get('/isLogged/')
       .then(response => {
-        console.log(response.data)
         if(response.data == 'log_in') { // 已经登录
           this.dialogVisible = false;
         } else { // 未登录
@@ -265,7 +241,7 @@ export default {
 .progress {
   text-align: center;
   display: inline-block;
-  width: 15%;
+  width: 20%;
   margin-left: 15px;
   vertical-align: middle;
 }
@@ -278,7 +254,6 @@ export default {
   position: relative;
   vertical-align: middle;
 }
-
 .circle {
   width: 100%;
   height: 100%;

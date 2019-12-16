@@ -51,12 +51,74 @@ export default {
       // ]
       this.images = [
         'airline.svg',
-        'les.svg',
-        'quakers.svg',
-        'strike.svg',
+        'America_Collage_football.svg',
+        'celegans.svg',
+        'codeminder1.svg',
+        'codeminder2.svg',
+        'codeminder3.svg',
+        'codeminder4.svg',
+        'codeminder5.svg',
+        'cond_2003_1.svg',
+        'cond_2003_2.svg',
+        'cond_2003_3.svg',
+        'cond_2003_4.svg',
+        'cond_2003_5.svg',
+        'cond_2003_6.svg',
+        'cond_2005_1.svg',
+        'cond_2005_2.svg',
+        'cond_2005_3.svg',
+        'cond_2005_4.svg',
+        'cond_mat.svg',
+        'cond_mat2.svg',
+        'cond_mat3.svg',
+        'cond_mat4.svg',
+        'cond_mat5.svg',
+        'cond_mat6.svg',
+        'cond_mat7.svg',
+        'cpanA.svg',
+        'Dolphin_Social_Network.svg',
+        'eurosis.svg',
+        'GRCite.svg',
+        'jazz.svg',
         'karate.svg',
-        'football.svg',
-        'got.svg']
+        'lesmiserable.svg',
+        'Neural_network.svg',
+        'pkrgraph.svg',
+        'polbook.svg',
+        'Political_blogs.svg',
+        'simulation1.svg',
+        'simulation10.svg',
+        'simulation11.svg',
+        'simulation12.svg',
+        'simulation13.svg',
+        'simulation14.svg',
+        'simulation15.svg',
+        'simulation16.svg',
+        'simulation17.svg',
+        'simulation18.svg',
+        'simulation19.svg',
+        'simulation2.svg',
+        'simulation20.svg',
+        'simulation21.svg',
+        'simulation22.svg',
+        'simulation23.svg',
+        'simulation24.svg',
+        'simulation25.svg',
+        'simulation26.svg',
+        'simulation27.svg',
+        'simulation28.svg',
+        'simulation29.svg',
+        'simulation3.svg',
+        'simulation30.svg',
+        'simulation4.svg',
+        'simulation5.svg',
+        'simulation6.svg',
+        'simulation7.svg',
+        'simulation8.svg',
+        'simulation9.svg',
+        'spdata.svg',
+        'us-air.svg',
+        'us-air2.svg']
     },
     getSize() {
       let parentNode = document.querySelector(".graph-container");
@@ -76,7 +138,6 @@ export default {
         _this.svg = d3.select(".graph-container svg");
         let svgWidth = _this.svg.attr("width");
         let svgHeight = _this.svg.attr("height");
-        console.log(svgWidth)
         let margin = {left: 20, right: 20, top: 20, bottom: 20}
         let scaleNumber = d3.min([(_this.width - margin.left - margin.right) / svgWidth, (_this.height - margin.top - margin.bottom) / svgHeight]);
         _this.svgWidth = svgWidth * scaleNumber;
@@ -115,7 +176,7 @@ export default {
           let responseData = response.data;
           let map = new Map();
           let points = [];
-          let viewBox = this.svg.attr("viewbox");
+          let viewBox = this.svg.attr("viewBox");
           let viewBoxArr = viewBox.split(" ");
           let radius = 10;
           let xScale = d3.scaleLinear()
@@ -124,14 +185,13 @@ export default {
           let yScale = d3.scaleLinear()
             .domain([parseFloat(viewBoxArr[1]), parseFloat(viewBoxArr[1])+parseFloat(viewBoxArr[3])])
             .range([0, this.svgHeight]);
-          console.log(responseData.datum)
+
           responseData.datum.forEach(d => {
-            d3.selectAll("ellipse").nodes().forEach(c => {
+            d3.selectAll("circle").nodes().forEach(c => {
               let circle = d3.select(c);
               let x = parseFloat(circle.attr("cx"));
               let y = parseFloat(circle.attr("cy")); 
-              radius = parseInt(circle.attr("rx")) * 1.5;
-              
+              radius = parseInt(circle.attr("r")) * 1.5;
               if(x > d.x1 && x < d.x2 && y > d.y1 && y < d.y2) {
                 let position = map.get(x+','+y);
                 if(position == undefined) {
@@ -146,6 +206,7 @@ export default {
             let arr = key.split(",");
             points.push({x: parseInt(xScale(parseFloat(arr[0]))), y: parseInt(yScale(parseFloat(arr[1]))), value: value});
           }
+
           let heatmapInstance = h337.create({
             // only container is required, the rest will be defaults
             container: document.querySelector('#heatmap'),
@@ -199,7 +260,7 @@ export default {
   },
   computed: {
     imagePath: function() {
-      return "static/images/" + this.images[this.current];
+      return "/static/images/" + this.images[this.current];
     },
     imageName: function() {
       let arr = this.imagePath.split("/");

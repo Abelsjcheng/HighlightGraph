@@ -268,7 +268,6 @@ export default {
                   did: responseData.state,
                 }).then(response => {
                   let responseData = response.data;
-                  console.log(responseData)
                   if(responseData.state == 'fail') {
                     alert("error");
                   } else {
