@@ -61,8 +61,8 @@ class Answers(models.Model):
     y2 = models.FloatField(blank=True, null=True)
     consumingtime = models.FloatField(default=0)
     answer = models.CharField(max_length=255, blank=True, null=True)
-    TestType = models.IntegerField(default=1)
-    qid = models.ForeignKey('Questions', on_delete=models.CASCADE, default='')
+    TestType = models.IntegerField(default=1,blank=True, null=True)
+    qid = models.ForeignKey('Questions', on_delete=models.CASCADE, default='',blank=True, null=True)
     username = models.ForeignKey('Username', on_delete=models.CASCADE, default='')
 #     def __str__(self):
 #         return "{" + "name: {0}, x1: {1}, y1: {2}, x2: {3}, y2: {4}".format(self.name, self.x1, self.y1, self.x2, self.y2) + "}"

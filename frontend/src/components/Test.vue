@@ -4,12 +4,26 @@
       <div class="progress-container">
         <el-progress :percentage="percent"></el-progress>
       </div>
-      <p id="second">{{second}} S</p>
-      <div class="graph-container"></div>
-      <div class="control-container">
-        <div class="button-container">
-          <input type="button" id="redo" class="button" value="Redo" @click="redo();">
-          <input type="button" id="next" class="button" value="Submit" @click="next();">
+      <p id="second">计时器:{{second}} S</p>
+      <div id="tooltip" class="hidden">
+        <p><strong>编号</strong></p>
+        <p><span id="value">100 </span></p>
+      </div>
+      <div style="display: flex;justify-content: center;">
+        <div class="freeExplore">
+          <p style="text-align: center;font-size:24px">自由探索 </p>
+          <button id="select" class="bt-button" @click="Frame();"> <img src="/static/font/Select.svg"/></button>
+          <button  id="redo" class="bt-button" @click="redo();">Redo</button >
+          <p style="text-align: center;"> <button style="height:60px" class="bt-button" @click="submit();">submit</button></p>
+        </div>
+        <div style="width: 80%;">
+          <div class="graph-container"></div>
+          <div class="control-container">
+            <div class="button-container">
+              
+              <input type="button" id="next" class="button" value="Next" @click="next();">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -32,102 +46,36 @@ export default {
       svg: null,
       svgWidth: null,
       svgHeight: null,
-      second: 40,
+      second: 0,
       interval: null,
       percentage: 0,
       rectangleInfo: [],
-      testNum: 5,
+      testNum: 7,
+      frameflag: false
     }
   },
   mounted() {
     this.$nextTick(() => {
       this.setContainerSize();
       this.initImages();
-      this.shuffle(this.images);
+      //this.shuffle(this.images);
       this.loadSvg();
     })
   },
   methods: {
     initImages() {
-      // this.images = [
-      //   'r-airline', 'r-cpanA', 'r-lesmiserable', 'r-us-air',
-      //   's-celegans', 's-codeminder1', 's-codeminder2', 's-codeminder3', 's-codeminder4', 's-codeminder5',
-      //   's-eurosis', 'si-simulation1', 'si-simulation2', 'si-simulation3', 'si-simulation4', 'si-simulation5',
-      //   's-jazz', 's-karate', 's-spdata', 's-us-air2', 'simulation6', 'simulation7', 'simulation8', 'simulation9',
-      //   'simulation10', 'simulation11', 'simulation12', 'simulation13', 'simulation14', 'simulation15', 'simulation16',
-      //   'simulation17', 'simulation18', 'simulation19', 'simulation20', 'simulation21', 'simulation22', 'simulation23',
-      //   'simulation24', 'simulation25', 'simulation26', 'simulation27', 'simulation28', 'simulation29', 'simulation30'
-      // ]
       this.images = [
-        'airline.svg',
-        'America_Collage_football.svg',
-        'celegans.svg',
-        'codeminder1.svg',
-        'codeminder2.svg',
-        'codeminder3.svg',
-        'codeminder4.svg',
-        'codeminder5.svg',
-        'cond_2003_1.svg',
-        'cond_2003_2.svg',
-        'cond_2003_3.svg',
-        'cond_2003_4.svg',
-        'cond_2003_5.svg',
-        'cond_2003_6.svg',
-        'cond_2005_1.svg',
-        'cond_2005_2.svg',
-        'cond_2005_3.svg',
-        'cond_2005_4.svg',
-        'cond_mat.svg',
-        'cond_mat2.svg',
-        'cond_mat3.svg',
-        'cond_mat4.svg',
-        'cond_mat5.svg',
-        'cond_mat6.svg',
-        'cond_mat7.svg',
-        'cpanA.svg',
-        'Dolphin_Social_Network.svg',
-        'eurosis.svg',
-        'GRCite.svg',
-        'jazz.svg',
-        'karate.svg',
-        'lesmiserable.svg',
-        'Neural_network.svg',
-        'pkrgraph.svg',
-        'polbook.svg',
-        'Political_blogs.svg',
-        'simulation1.svg',
-        'simulation10.svg',
-        'simulation11.svg',
-        'simulation12.svg',
-        'simulation13.svg',
-        'simulation14.svg',
-        'simulation15.svg',
-        'simulation16.svg',
-        'simulation17.svg',
-        'simulation18.svg',
-        'simulation19.svg',
-        'simulation2.svg',
-        'simulation20.svg',
-        'simulation21.svg',
-        'simulation22.svg',
-        'simulation23.svg',
-        'simulation24.svg',
-        'simulation25.svg',
-        'simulation26.svg',
-        'simulation27.svg',
-        'simulation28.svg',
-        'simulation29.svg',
-        'simulation3.svg',
-        'simulation30.svg',
-        'simulation4.svg',
-        'simulation5.svg',
-        'simulation6.svg',
-        'simulation7.svg',
-        'simulation8.svg',
-        'simulation9.svg',
-        'spdata.svg',
-        'us-air.svg',
-        'us-air2.svg']
+        'got.svg', // 权力的游戏网络
+        'quakers.svg', // 贵格会网络
+        'football.svg', // 美国大学生橄榄球网络
+        'karate.svg', // 空手道俱乐部网络
+        'les.svg', // 悲惨世界网络
+        // 德国男校网络
+        // TI棒球队网络
+        // SA棒球队络 
+        'strike.svg', // 锯木厂工人网络
+        'PolActor.svg' // 政治人物网络
+        ]
     },
     setContainerSize() {
       let screenWidth = document.documentElement.clientWidth ||  document.body.clientWidth;
@@ -135,13 +83,9 @@ export default {
       document.querySelector(".graph-container").style.height = screenHeight * 0.68 + "px";
     },
     initInterval() {
-      this.second = 40;
+      this.second = 0;
       this.interval = setInterval(() => {
-        if(this.second <= 0) {
-          this.next();
-          return;
-        }
-        this.second -= 1;
+        this.second += 1;
       }, 1000)
     },
     getSize() {
@@ -184,8 +128,40 @@ export default {
         document.querySelector("#second").style.visibility="visible";
         document.querySelector("#redo").removeAttribute("disabled");
         document.querySelector("#next").removeAttribute("disabled");
-        _this.drawRectangle();
+        _this.tooltip();
+        //_this.drawRectangle();
+        
       });
+    },
+    Frame() {
+      this.frameflag = !this.frameflag
+      if(this.frameflag == false){
+        d3.select("#select").style("border-color","#DCDFE6").style("background-color","#fff")
+        d3.select(".graph-container .brush").remove();
+      }else{
+        d3.select("#select").style("border-color","#c6e2ff").style("background-color","#ecf5ff")
+        this.drawRectangle();
+      }
+      
+    },
+    tooltip(){
+      d3.selectAll("circle").nodes().forEach(function(d,index) {
+            let circle = d3.select(d);
+            let x = parseFloat(circle.attr("cx"));
+            let y = parseFloat(circle.attr("cy"));
+            d3.select("#nodes").append('rect') //创建一个小矩形感应鼠标的moveover
+            .attr('x',x-3) .attr('y',y-3) .attr('width',"6px")
+		        .attr('height',"6px").attr('fill-opacity','0.0').on("mouseover",function(){
+              d3.select("#tooltip")
+              .style("left", (d3.event.pageX)+"px")
+              .style("top", (d3.event.pageY+20)+"px")
+              .select("#value")
+              .text(index);
+              d3.select("#tooltip").classed("hidden", false);
+            }).on('mouseout',function(d){
+              d3.select("#tooltip").classed("hidden", true);
+            })
+          })
     },
     drawRectangle() {
       /**
@@ -201,6 +177,7 @@ export default {
       let _this = this;
       function brushended() {
         var s = d3.event.selection;
+        let timeFormat = d3.timeFormat("%Y-%m-%d %H:%M:%S");
         console.log(s)
         if(s) {
           d3.select("g.rectangles").append("rect")
@@ -214,6 +191,7 @@ export default {
 
           _this.rectangleInfo.push({
             name: _this.imageName,
+            time: timeFormat(new Date()),
             x1: s[0][0],
             y1: s[0][1],
             x2: s[1][0],
@@ -232,8 +210,33 @@ export default {
         }
       }
     },
+    submit() {
+      this.rectangleInfo.forEach(d => {
+        axios.post("/saveanswer/", {
+          time: d.time,
+          name: d.name,
+          x1: d.x1,
+          y1: d.y1,
+          x2: d.x2,
+          y2: d.y2,
+          qid: '1.5.1',
+          answer: '',
+          consumingtime: this.second.toFixed(1),
+          TestType: 1
+        }).then(response => {
+          let responseData = response.data;
+          if(responseData.state == 'fail') {
+            this.$message.error('提交失败');
+          } else {
+            this.$message({
+              message: '提交成功',
+               type: 'success'
+            });
+          }
+        })
+      })
+    },
     next() {
-      console.log(this.current)
       this.rectangleInfo = [];
       clearInterval(this.interval);
       this.percentage += (100 / this.testNum);
@@ -247,6 +250,8 @@ export default {
         return;
       } else {
         this.current += 1;
+        this.frameflag = false
+        d3.select("#select").style("border-color","#DCDFE6").style("background-color","#fff")
         d3.select(".graph-container").selectAll("svg").remove();
         document.querySelector("#second").style.visibility = "hidden";
         document.querySelector("#redo").disabled = "disabled"
@@ -260,7 +265,6 @@ export default {
       let rects = d3.select(".graph-container .rectangles").selectAll("rect").nodes();
       d3.select(rects[rects.length - 1]).remove();
       d3.select(".graph-container .brush").remove();
-      // d3.selectAll("circle").classed("selected", false)
       if(this.rectangleInfo.length > 0) {
         let rectangle = this.rectangleInfo[this.rectangleInfo.length-1];
         this.rectangleInfo.splice(this.rectangleInfo.length-1, 1);
@@ -273,6 +277,7 @@ export default {
           }
         })
       }
+      if(this.frameflag == true)
       this.drawRectangle();
     }
   },
@@ -308,14 +313,14 @@ export default {
 }
 #second {
   position: absolute;
-  left: 5%;
+  left: 4%;
   top: 12%;
   font-size: 30px;
   font-weight: bold;
   color: #ccc;
 }
 .graph-container {
-  width: 70%;
+  width: 90%;
   height: 720px;
   margin: 3% auto;
   border: 1px solid black;
@@ -335,10 +340,63 @@ export default {
   font-size: 18px;
   margin-bottom: 20px;
 }
-#redo {
-  float: left;
+
+#tooltip {
+	position: absolute;
+  width: 100px;
+	height: auto;
+	padding: 10px;
+	background-color: white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	pointer-events: none;
+  z-index: 10000;
 }
-#next {
+#tooltip.hidden {
+	display: none;
+}
+
+#tooltip p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+}
+.freeExplore{
+  width: 200px;
+  height: 250px;
+  margin-top:10%;
+  padding: 20px;
+  border: 1px solid #DCDFE6;
+  
+}
+#redo{
+  height: 60px;
   float: right;
+}
+
+.bt-button{
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #FFF;
+  border: 1px solid #DCDFE6;
+  margin: 0;
+  text-align: center;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+.bt-button:focus{
+  outline: 0
+}
+.bt-button:active{
+    background-color: #ecf5ff;
+    border-color: #3a8ee6;
+    outline: 0;
 }
 </style>

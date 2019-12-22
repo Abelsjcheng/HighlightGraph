@@ -35,6 +35,7 @@ def saveRect(request):
 		except:
 			return HttpResponse(json.dumps({'state': 'fail'}), content_type='application/json')
 
+
 def saveDuration(request):
 	if request.method == 'POST':
 		params = json.loads(request.body)
@@ -52,7 +53,9 @@ def readRect(request):
 		params = json.loads(request.body)
 		print(params)
 		username = models.Username.objects.get(username=request.COOKIES.get('current_user'))
-		filter_data = models.Answers.objects.filter(name=params['name'], username_id=username, x1__gt=0).values()
+		filter_data = models.Answers.objects.filter(name=params['name'], username_id=username).values()
+		print(username)
+		print(filter_data)
 		#filter_data = models.Rectangle.objects.filter(name=params['name']).values()
 		return HttpResponse(json.dumps({'datum': list(filter_data)}), content_type='application/json')
 
@@ -89,6 +92,7 @@ def saveanswer(request):
 		try:
 			qid = models.Questions.objects.get(qid=params['qid'])
 			username = models.Username.objects.get(username=request.COOKIES.get('current_user'))
+			print(params)
 			models.Answers.objects.create(time=params['time'], name=params['name'], answer=params['answer'], x1=params['x1'], y1=params['y1'], x2=params['x2'], y2=params['y2'], qid=qid, consumingtime=params['consumingtime'], username=username, TestType=params['TestType'])
 			return HttpResponse(json.dumps({'state': 'success'}), content_type='application/json')
 		except:

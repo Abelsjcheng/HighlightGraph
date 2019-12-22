@@ -1,30 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="474ff535-125f-4044-9c12-0340650177ac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/HighlightGraph.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/strike.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/strike.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/js/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/js/http.js" afterDir="false" />
+    <list default="true" id="474ff535-125f-4044-9c12-0340650177ac" name="Default Changelist" comment="commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/Mexican.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/Mexican3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/Mexican5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/Mexican6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/MexicanM3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/MexicanM5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/MexicanM6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/MexicanMY.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActor.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActor17.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActor20.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActor8.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActorM17.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActorM20.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActorM8.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActorMY.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/airline.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/football.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/got.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kan.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kan1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kan3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kan8.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kanM1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kanM3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kanM8.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kanMY.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmine.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmine14.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmine56.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmine57.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmineM14.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmineM56.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmineM57.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmineMY.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/karate.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/les.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/polbook.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/polbook19.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/polbook3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/polbook8.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/quakers.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmill.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmill2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmill22.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmill9.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmillM2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmillM22.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmillM9.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmillMY.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/strike.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgov.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgov11.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgov13.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgov3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgovM11.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgovM13.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgovM3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgovMY.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/HeatmapGraph.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/HeatmapGraph.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Introduction.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Introduction.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/NodeLinkGraph.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/NodeLinkGraph.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Problems.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/SelectGraph.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Study.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Test.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vue.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1254">
-              <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
+            <state relative-caret-position="239">
+              <caret line="55" column="93" selection-start-line="55" selection-start-column="93" selection-end-line="55" selection-end-column="93" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -98,8 +143,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HighlightGraph/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="53" selection-start-line="53" selection-end-line="53" />
+            <state relative-caret-position="197">
+              <caret line="94" column="43" selection-start-line="94" selection-start-column="43" selection-end-line="94" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -124,8 +169,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="42" column="45" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
+            <state relative-caret-position="387">
+              <caret line="63" column="66" selection-start-line="63" selection-start-column="66" selection-end-line="63" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -155,9 +200,9 @@
         <option value="$PROJECT_DIR$/venv/Lib/site-packages/django/db/backends/mysql/base.py" />
         <option value="$PROJECT_DIR$/venv/Lib/site-packages/django/db/backends/mysql/operations.py" />
         <option value="$PROJECT_DIR$/HighlightGraph/urls.py" />
-        <option value="$PROJECT_DIR$/backend/views.py" />
         <option value="$PROJECT_DIR$/backend/admin.py" />
         <option value="$PROJECT_DIR$/backend/models.py" />
+        <option value="$PROJECT_DIR$/backend/views.py" />
         <option value="$PROJECT_DIR$/HighlightGraph/settings.py" />
       </list>
     </option>
@@ -186,6 +231,11 @@
               <item name="HighlightGraph" type="b2602c69:ProjectViewProjectNode" />
               <item name="HighlightGraph" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HighlightGraph" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HighlightGraph" type="462c0819:PsiDirectoryNode" />
+              <item name="HighlightGraph" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -278,7 +328,10 @@
       <workItem from="1576037436574" duration="694000" />
       <workItem from="1576041448045" duration="1317000" />
       <workItem from="1576068242242" duration="1072000" />
-      <workItem from="1576503341166" duration="462000" />
+      <workItem from="1576503341166" duration="486000" />
+      <workItem from="1576853740725" duration="2115000" />
+      <workItem from="1576917793464" duration="1186000" />
+      <workItem from="1576999478231" duration="2193000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1576042218758</created>
@@ -287,11 +340,18 @@
       <option name="project" value="LOCAL" />
       <updated>1576042218758</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit">
+      <created>1576507657628</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1576507657629</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76368000" />
+    <option name="totallyTimeSpent" value="81886000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -304,13 +364,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.347185" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36126006" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49464524" weight="0.3281471" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49464524" visible="true" weight="0.32719547" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -319,7 +380,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" sideWeight="0.49932975" weight="0.32956153" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50402147" side_tool="true" weight="0.32956153" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49597856" visible="true" weight="0.33002833" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49597856" weight="0.33002833" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32956153" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -430,16 +491,6 @@
     <entry file="file://$PROJECT_DIR$/backend/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1254">
-          <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/core/handlers/exception.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -474,20 +525,30 @@
     <entry file="file://$PROJECT_DIR$/HighlightGraph/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="42" column="45" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/backend/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="63" column="66" selection-start-line="63" selection-start-column="66" selection-end-line="63" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="55" column="93" selection-start-line="55" selection-start-column="93" selection-end-line="55" selection-end-column="93" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/HighlightGraph/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="197">
+          <caret line="94" column="43" selection-start-line="94" selection-start-column="43" selection-end-line="94" selection-end-column="43" />
         </state>
       </provider>
     </entry>
