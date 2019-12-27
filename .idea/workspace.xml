@@ -1,75 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="474ff535-125f-4044-9c12-0340650177ac" name="Default Changelist" comment="commit">
+    <list default="true" id="474ff535-125f-4044-9c12-0340650177ac" name="Default Changelist" comment="update 2019.12.22">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/Mexican.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/Mexican3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/Mexican5.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/Mexican6.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/MexicanM3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/MexicanM5.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/MexicanM6.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/MexicanMY.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActor.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActor17.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActor20.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActor8.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActorM17.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActorM20.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActorM8.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/PloActorMY.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/airline.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/football.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/got.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kan.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kan1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kan3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kan8.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kanM1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kanM3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kanM8.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kanMY.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmine.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmine14.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmine56.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmine57.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmineM14.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmineM56.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmineM57.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/kapmineMY.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/karate.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/les.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/polbook.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/polbook19.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/polbook3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/polbook8.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/quakers.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmill.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmill2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmill22.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmill9.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmillM2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmillM22.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmillM9.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/sawmillMY.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/strike.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgov.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgov11.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgov13.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgov3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgovM11.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgovM13.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgovM3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/studentgovMY.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill2.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill3.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill4.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill4.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill5.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill5.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/js/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/js/http.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/HeatmapGraph.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/HeatmapGraph.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/SelectGraph.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SelectGraph.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Test.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="55" column="93" selection-start-line="55" selection-start-column="93" selection-end-line="55" selection-end-column="93" />
+            <state relative-caret-position="1083">
+              <caret line="62" column="21" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -113,64 +65,51 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/core/handlers/exception.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/core/handlers/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1919">
-              <caret line="112" selection-start-line="112" selection-end-line="112" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HighlightGraph/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HighlightGraph/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="94" column="43" selection-start-line="94" selection-start-column="43" selection-end-line="94" selection-end-column="43" />
+            <state relative-caret-position="281">
+              <caret line="93" column="23" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HighlightGraph/urls.py">
+        <entry file="file://$PROJECT_DIR$/backend/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+            <state relative-caret-position="342">
+              <caret line="18" column="41" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/apps.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="18" column="78" selection-start-line="18" selection-start-column="78" selection-end-line="18" selection-end-column="78" />
               <folding>
-                <element signature="e#638#670#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HighlightGraph/wsgi.py">
+        <entry file="file://$PROJECT_DIR$/backend/__init__.py">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/models.py">
+        <entry file="file://D:/csulab/python/Lib/wsgiref/headers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="63" column="66" selection-start-line="63" selection-start-column="66" selection-end-line="63" selection-end-column="66" />
+            <state relative-caret-position="2698">
+              <caret line="142" selection-start-line="142" selection-end-line="142" />
             </state>
           </provider>
         </entry>
@@ -188,6 +127,8 @@
       <find>list</find>
       <find>fil</find>
       <find>usetime</find>
+      <find>iso-8859-1</find>
+      <find>current_user</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -200,6 +141,7 @@
         <option value="$PROJECT_DIR$/venv/Lib/site-packages/django/db/backends/mysql/base.py" />
         <option value="$PROJECT_DIR$/venv/Lib/site-packages/django/db/backends/mysql/operations.py" />
         <option value="$PROJECT_DIR$/HighlightGraph/urls.py" />
+        <option value="D:/csulab/python/Lib/wsgiref/headers.py" />
         <option value="$PROJECT_DIR$/backend/admin.py" />
         <option value="$PROJECT_DIR$/backend/models.py" />
         <option value="$PROJECT_DIR$/backend/views.py" />
@@ -219,7 +161,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -241,6 +182,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -331,7 +273,13 @@
       <workItem from="1576503341166" duration="486000" />
       <workItem from="1576853740725" duration="2115000" />
       <workItem from="1576917793464" duration="1186000" />
-      <workItem from="1576999478231" duration="2193000" />
+      <workItem from="1576999478231" duration="2498000" />
+      <workItem from="1577021322016" duration="3398000" />
+      <workItem from="1577089524041" duration="3516000" />
+      <workItem from="1577196320027" duration="598000" />
+      <workItem from="1577257927255" duration="3680000" />
+      <workItem from="1577340561788" duration="1755000" />
+      <workItem from="1577448961785" duration="722000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1576042218758</created>
@@ -347,11 +295,25 @@
       <option name="project" value="LOCAL" />
       <updated>1576507657629</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update 2019.12.22">
+      <created>1577010294139</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577010294139</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update 2019.12.22">
+      <created>1577010375463</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1577010375463</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81886000" />
+    <option name="totallyTimeSpent" value="95860000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -366,7 +328,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36126006" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.39276138" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -394,7 +356,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="update 2019.12.22" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 2019.12.22" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://D:/csulab/python/Lib/threading.py">
@@ -474,23 +437,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="23" column="79" selection-start-line="23" selection-start-column="79" selection-end-line="23" selection-end-column="79" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/dist/index.html" />
-    <entry file="file://$PROJECT_DIR$/backend/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/core/handlers/exception.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -514,7 +461,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HighlightGraph/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
+        <state relative-caret-position="273">
           <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
           <folding>
             <element signature="e#638#670#0" expanded="true" />
@@ -525,30 +472,53 @@
     <entry file="file://$PROJECT_DIR$/HighlightGraph/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="63" column="66" selection-start-line="63" selection-start-column="66" selection-end-line="63" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="55" column="93" selection-start-line="55" selection-start-column="93" selection-end-line="55" selection-end-column="93" />
+        <state relative-caret-position="1083">
+          <caret line="62" column="21" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backend/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="41" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="18" column="78" selection-start-line="18" selection-start-column="78" selection-end-line="18" selection-end-column="78" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://D:/csulab/python/Lib/wsgiref/headers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2698">
+          <caret line="142" selection-start-line="142" selection-end-line="142" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/HighlightGraph/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="94" column="43" selection-start-line="94" selection-start-column="43" selection-end-line="94" selection-end-column="43" />
+        <state relative-caret-position="281">
+          <caret line="93" column="23" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="23" />
         </state>
       </provider>
     </entry>

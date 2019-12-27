@@ -8,6 +8,8 @@ import Test from '../components/Test'
 import HeatmapGraph from '../components/HeatmapGraph'
 import Study from '../components/Study'
 import SelectGraph from '../components/SelectGraph'
+import Test3 from '../components/Test3'
+import Test2 from '../components/Test2'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -17,6 +19,8 @@ const router = new VueRouter({
     { path: '/test', name: 'test', component: Test },
     { path: '/Study', name: 'Study', component: Study },
     { path: '/SelectGraph', name: 'SelectGraph', component: SelectGraph },
+    { path: '/Test3', name: 'Test3', component: Test3 },
+    { path: '/Test2', name: 'Test2', component: Test2 },
     { path: '/heatmap', name: 'heatmap', component: HeatmapGraph },
     { path: '/home', name: 'home', component: Home },
     { path:'/', redirect:'/home' }

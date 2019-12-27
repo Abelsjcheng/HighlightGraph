@@ -10,13 +10,13 @@ class UsernameAdmin(admin.ModelAdmin):
 
 
 class DurationAdmin(admin.ModelAdmin):
-    list_display = ('did', 'time', 'name', 'consumingtime', 'username')
+    list_display = ('did', 'time', 'name', 'consumingtime', 'username', 'qid', 'TestType')
     search_fields = ('did', 'time', 'name', 'consumingtime')
 
 
 class RectangleAdmin(admin.ModelAdmin):
-    list_display = ('rid', 'time', 'name', 'x1', 'y1', 'x2', 'y2', 'username', 'duration')
-    search_fields = ('rid', 'time', 'name', 'x1', 'y1', 'x2', 'y2')
+    list_display = ('rid', 'time', 'name', 'x1', 'y1', 'x2', 'y2', 'username')
+    search_fields = ('rid', 'time', 'name', 'x1', 'y1', 'x2', 'y2', 'username')
 
 
 class QuestionsAdmin(admin.ModelAdmin):

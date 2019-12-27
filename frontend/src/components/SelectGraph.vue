@@ -4,7 +4,6 @@
       <div class="progress-container">
         <el-progress :percentage="percent"></el-progress>
       </div>
-      <p id="second">计时器:{{second}} S</p>
       <div class="main-container">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
@@ -146,7 +145,6 @@ export default {
         this.images=[];
         this.inputClasstype = ""
         this.inputGraphname = ""
-        document.querySelector("#second").style.visibility = "hidden";
         setTimeout(() => {
           this.getQuestions();
         }, 2000)
@@ -168,7 +166,6 @@ export default {
                     });
                 }else{
                   this.images=[];
-                    document.querySelector("#second").style.visibility = "hidden";
                     setTimeout(() => {
                         this.loadQuestion();
                     }, 2000)
@@ -185,8 +182,8 @@ export default {
                 console.log(this.questions)
                 this.loadQuestion()
             })
-        },
-        loadQuestion() {
+      },
+      loadQuestion() {
             this.question = this.questions[this.current].content
             this.questionType=this.questions[this.current].type
             if(this.questionType == 1 ){
@@ -204,7 +201,6 @@ export default {
               this.imageMHPath = "static/images/lab3/"+this.questions[this.current].questionImg
             }
             this.initInterval();
-            document.querySelector("#second").style.visibility="visible";
             this.current++
         },
     },
@@ -263,14 +259,7 @@ export default {
   display: inline-block;
   margin: 1%;
 }
-#second {
-  position: absolute;
-  left: 4%;
-  top: 12%;
-  font-size: 30px;
-  font-weight: bold;
-  color: #ccc;
-}
+
 .graphselect{
   width: 100%; 
   height: 100%;
@@ -287,7 +276,7 @@ export default {
   .item {
     margin-bottom: 18px;
   }
-
+  
   .clearfix:before,
   .clearfix:after {
     display: table;
@@ -311,7 +300,10 @@ export default {
   font-size: 18px;
   margin-bottom: 20px;
 }
+.box-card /deep/ .el-card__header{
+  height: 12%;
+}
 .box-card /deep/ .el-card__body{
-  height: 100%;
+  height: 85%;
 }
 </style>

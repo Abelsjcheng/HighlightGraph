@@ -18,6 +18,8 @@ class Duration(models.Model):
     name = models.CharField(max_length=50)
     consumingtime = models.IntegerField()
     username = models.ForeignKey('Username', on_delete=models.CASCADE, default='')
+    qid = models.CharField(max_length=50, default='', blank=True, null=True)
+    TestType = models.IntegerField(default=1)
 
 
 class Rectangle(models.Model):
@@ -29,7 +31,7 @@ class Rectangle(models.Model):
     x2 = models.FloatField()
     y2 = models.FloatField()
     username = models.ForeignKey('Username', on_delete=models.CASCADE, default='')
-    duration = models.ForeignKey('Duration', on_delete=models.CASCADE, default='')
+
 
 
 class Questions(models.Model):

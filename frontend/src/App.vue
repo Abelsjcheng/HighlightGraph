@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <div class="header">
-      <span><a href="/">Graph Sampling</a></span>
-    </div>
     <router-view></router-view>
   </div>
 </template>
@@ -13,9 +10,11 @@ import axios from './assets/js/http'
 export default {
   name: 'app',
   components: {
+    
   },
   data() {
     return {
+      
     }
   },
   mounted() {
@@ -55,6 +54,7 @@ html, body {
   margin-left: 1%;
   text-decoration: none;
 }
+
 /* .graph_img {
   border: black solid 1px;
   text-align: center;

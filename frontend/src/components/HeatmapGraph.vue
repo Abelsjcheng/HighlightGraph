@@ -119,7 +119,6 @@ export default {
           let yScale = d3.scaleLinear()
             .domain([parseFloat(viewBoxArr[1]), parseFloat(viewBoxArr[1])+parseFloat(viewBoxArr[3])])
             .range([0, this.svgHeight]);
-
           responseData.datum.forEach(d => {
             d3.selectAll("circle").nodes().forEach(c => {
               let circle = d3.select(c);
@@ -194,7 +193,7 @@ export default {
   },
   computed: {
     imagePath: function() {
-      return "/static/images/" + this.images[this.current];
+      return "/static/images/lab12/" + this.images[this.current];
     },
     imageName: function() {
       let arr = this.imagePath.split("/");

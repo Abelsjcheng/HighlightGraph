@@ -6,24 +6,31 @@
         <div class="mutiple-progress">
           <div class="circle-container">
             <div class="circle" @click="toIntro();"></div>
-            <p class="number" @click="toIntro();">1</p>
+            <p class="number" @click="toIntro();">I</p>
           </div>
           <div class="progress">
             <el-progress :show-text="false" :stroke-width="20" :percentage="intro_percentage" color="#ccc"></el-progress>
           </div>
           <div class="circle-container">
-            <div class="circle" @click="toTest();"></div>
-            <p class="number" @click="toTest();">2</p>
+            <div class="circle" @click="toTest1();"></div>
+            <p class="number" @click="toTest1();">1</p>
           </div>
           <div class="progress">
-            <el-progress :show-text="false" :stroke-width="20" :percentage="Study_percentage" color="#ccc"></el-progress>
+            <el-progress :show-text="false" :stroke-width="20" :percentage="test1_percentage" color="#ccc"></el-progress>
+          </div>
+          <div class="circle-container">
+            <div class="circle" @click="toTest2();"></div>
+            <p class="number" @click="toTest2();">2</p>
+          </div>
+          <div class="progress">
+            <el-progress :show-text="false" :stroke-width="20" :percentage="test2_percentage" color="#ccc"></el-progress>
           </div>
           <div class="circle-container">
             <div class="circle" @click="toStudy();"></div>
-            <p class="number" @click="toStudy();">L</p>
+            <p class="number" @click="toStudy();">S</p>
           </div>
           <div class="progress">
-            <el-progress :show-text="false" :stroke-width="20" :percentage="test_percentage" color="#ccc"></el-progress>
+            <el-progress :show-text="false" :stroke-width="20" :percentage="study_percentage" color="#ccc"></el-progress>
           </div>
           <div class="circle-container">
             <div class="circle" @click="toSelectGraph();"></div>
@@ -36,10 +43,8 @@
                 </select>
             </div> -->
           </div>
-          <div class="progress">
-            <el-progress :show-text="false" :stroke-width="20" :percentage="experiment_percentage" color="#ccc"></el-progress>
-          </div>
-          <div class="circle-container">
+          
+          <div class="circle-container-toHeat">
             <div class="circle" @click="toHeatmap();"></div>
             <p class="number" @click="toHeatmap();">H</p>
           </div>
@@ -93,6 +98,7 @@
 <script>
 import * as d3 from "d3"
 import axios from '../assets/js/http'
+
 export default {
   name: 'Home',
   props: {
@@ -100,9 +106,9 @@ export default {
   data() {
     return {
 			intro_percentage: 0,
-      test_percentage: 0,
-      Study_percentage: 0,
-			experiment_percentage: 0,
+      test1_percentage: 0,
+      test2_percentage: 0,
+      study_percentage: 0,
       dialogVisible: false,
       form: {
         name: '',
@@ -148,19 +154,19 @@ export default {
           break;
         case 'test':
           this.intro_percentage = 100;
-          this.Study_percentage = 100;
+          this.test1_percentage = 100;
           break;
         case 'study':
           this.intro_percentage = 100;
-          this.Study_percentage = 100;
-          this.test_percentage = 100;
+          this.test1_percentage = 100;
+          this.test2_percentage = 100;
           break;
         case 'expertment':
           this.intro_percentage = 100;
-          this.Study_percentage = 100;
-          this.test_percentage = 100;
-          this.experiment_percentage = 100;
-          this.signout();
+          this.test1_percentage = 100;
+          this.test2_percentage = 100;
+          this.study_percentage = 100;
+          // this.signout();
           break;
         default:
           break;
@@ -172,22 +178,29 @@ export default {
       this.isLogged();
 			this.$router.push('/intro');
 		},
-		toTest() {
+		toTest1() {
 			if(this.intro_percentage == 0) {
 				alert("请按序操作...")
 				return;
 			}
 			this.$router.push('/test');
     },
+    toTest2() {
+			if(this.intro_percentage == 0 || this.test1_percentage == 0) {
+				alert("请按序操作...")
+				return;
+			}
+			this.$router.push('/test2');
+    },
     toStudy() {
       this.$router.push('/Study');
     },
     toSelectGraph() {
-      if( this.intro_percentage == 0 || this.test_percentage == 0 ) {
+      if( this.test2_percentage == 0 || this.test1_percentage == 0 ) {
 				alert("请按序操作...")
 				return;
 			}
-      this.$router.push('/SelectGraph');
+      this.$router.push('/Test3');
     },
 		toExperiment() {
 			if(this.intro_percentage == 0 || this.test_percentage == 0) {
@@ -286,6 +299,15 @@ export default {
   width: 50px;
   height: 50px;
   margin-left: 15px;
+  position: relative;
+  vertical-align: middle;
+}
+.circle-container-toHeat{
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  margin: 1% auto;
+  left: 8px;
   position: relative;
   vertical-align: middle;
 }
