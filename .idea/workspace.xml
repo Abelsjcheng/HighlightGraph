@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="474ff535-125f-4044-9c12-0340650177ac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HighlightGraph/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/HighlightGraph/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/js/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/js/http.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Study.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Study.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Test.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="108" selection-start-line="108" selection-end-line="108" />
+            <state relative-caret-position="339">
+              <caret line="98" column="15" lean-forward="true" selection-start-line="98" selection-start-column="15" selection-end-line="98" selection-end-column="15" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -268,6 +263,7 @@
       <workItem from="1577448961785" duration="1532000" />
       <workItem from="1577513853231" duration="2110000" />
       <workItem from="1577609712049" duration="723000" />
+      <workItem from="1577941441886" duration="639000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1576042218758</created>
@@ -304,11 +300,18 @@
       <option name="project" value="LOCAL" />
       <updated>1577449706303</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update 2019.12.31">
+      <created>1577941494049</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1577941494049</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99503000" />
+    <option name="totallyTimeSpent" value="100142000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -321,8 +324,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2774799" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28150135" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -352,7 +356,8 @@
     <MESSAGE value="commit" />
     <MESSAGE value="update 2019.12.22" />
     <MESSAGE value="update 2019.12.27" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 2019.12.27" />
+    <MESSAGE value="update 2019.12.31" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 2019.12.31" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://D:/csulab/python/Lib/threading.py">
@@ -469,8 +474,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        <state relative-caret-position="339">
+          <caret line="98" column="15" lean-forward="true" selection-start-line="98" selection-start-column="15" selection-end-line="98" selection-end-column="15" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
