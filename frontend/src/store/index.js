@@ -9,7 +9,8 @@ const store = new Vuex.Store({
 		background: null,
 	},
 	getters: {
-		background:state => state.background
+		background:state => state.background,
+		imagelist:state => state.imagelist
 	},
 	mutations: {
 		setUsername(state, username) {
@@ -17,6 +18,9 @@ const store = new Vuex.Store({
 		},
 		setBackground(state, background) {
 			state.background = background;
+		},
+		setImagelist(state, imagelist){
+			state.imagelist = imagelist;
 		}
 	},
 	actions: {
@@ -25,6 +29,9 @@ const store = new Vuex.Store({
 		},
 		getBackground(context, background) {
 			context.commit("setBackground", background);
+		},
+		getImagelist(context, imagelist) {
+			context.commit("setImagelist", imagelist);
 		}
 	}
 })	

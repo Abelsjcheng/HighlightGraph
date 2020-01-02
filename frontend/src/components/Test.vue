@@ -1,16 +1,23 @@
 <template>
   <div class="body">
     <div id="tooltip" class="hidden">
-        <p><strong>编号</strong></p>
-        <p><span id="value">100 </span></p>
+      <p><strong>ID:</strong></p>
+      <p><span id="value">100 </span></p>
+    </div>
+    <el-drawer ref="drawer" :visible.sync="drawer" direction="btt" :close-on-press-escape="drawerclose.esc" :show-close="drawerclose.close"  size="100%">
+      <div class="background-container">
+      <p class="background-title" > {{graphinfo.graphname}}</p>
+      <p class="background-content" >{{graphinfo.background}}</p>
       </div>
+    </el-drawer>
     <el-container style="height:100%">
       <el-aside width="250px">
         <div class="control-head">Control Plane </div>
+        <div class="aside-main">
         <div class="control-container">
           <span class="control-name"> Datasets</span>
           <div class="control-main">
-            <label :id="'graph'+index" v-for="(graphname,index) in images" v-bind:key="index"><input :id="'check'+index" type="checkbox" name="check" style="float:left;visibility:hidden" />{{graphname}}</label>
+            <label :id="'graph'+index" v-for="(graphname,index) in images" v-bind:key="index"><input :id="'check'+index" type="checkbox" name="check" style="float:left;visibility:hidden" />{{graphname.image}}</label>
           </div>
         </div>
         <div class="control-container">
@@ -21,7 +28,6 @@
               <div class="freeExplore">
                 <button id="select" class="bt-button" @click="Frame();"> Select</button>
                 <button  id="redo" class="bt-button" @click="redo();">Redo</button >
-                <button  class="bt-button" @click="submit();">submit</button>
               </div>
             </div>
             <div style="margin-top:10px">
@@ -49,26 +55,31 @@
             <div style="margin-top:10px">
               <div class="freeExplore">
                 <button id="TimeStart" class="bt-button" @click="TimeStart();">Start</button>
-                <button id="TimeStop" class="bt-button" @click="TimeStop();">Stop</button >
               </div>
             </div>
           </div>
         </div>
+        </div>
       </el-aside>
       <el-container>
         <el-main>
-          <div class="graph-header"> </div>
+          <div class="graph-header">
+              <span style="width:142px">graph_id:{{image_id}}</span>
+              <span>请找出你对图中感兴趣的部分 </span>
+              <span style="width:142px"></span>
+          </div>
           <div class="graph-container"></div>
         </el-main>
       </el-container>
     </el-container>
-    
+  
   </div>
 </template>
 
 <script>
 import * as d3 from "d3"
 import axios from '../assets/js/http'
+import { mapGetters } from 'vuex'
 export default {
   name: 'Test',
   props: {
@@ -88,14 +99,22 @@ export default {
       testNum: 7,
       frameflag: false,
       SelectedData:[],
-      Timerflag:0
-
+      Timerflag:0,
+      drawer: false,
+      graphinfo: '',
+      drawerclose:{ 'esc':false,'close':false},
+      image_id: 0
     }
   },
   mounted() {
     this.$nextTick(() => {
       this.setContainerSize();
       this.initImages();
+      this.shuffle(this.images);
+      if(this.background == 1){
+        this.getBcakground();
+      }
+      this.image_id = this.images[this.current].id
       this.$nextTick(() => {
         document.getElementById("graph"+this.current).style.cssText="color:#000;font-weight: 700"
         document.getElementById("check"+this.current).checked=true
@@ -106,24 +125,34 @@ export default {
   methods: {
     initImages() {
       this.images = [
-        'got', // 权力的游戏网络
-        'quakers', // 贵格会网络
-        'football', // 美国大学生橄榄球网络
-        'karate', // 空手道俱乐部网络
-        'les', // 悲惨世界网络
-        // 德国男校网络
-        // TI棒球队网络
-        // SA棒球队络 
-        'strike', // 锯木厂工人网络
-        'PolActor' // 政治人物网络
+        { 'id':1,'image':'got'},
+        { 'id':2,'image':'quakers'},
+        { 'id':3,'image':'football'},
+        { 'id':4,'image':'karate'},
+        { 'id':5,'image':'les'},
+        //{ 'id':6,'image':'got'},
+        //{ 'id':7,'image':'got'},
+        //{ 'id':8,'image':'got'},
+        { 'id':9,'image':'strike'},
+        { 'id':10,'image':'PolActor'}
+        // 'got', // 权力的游戏网络
+        // 'quakers', // 贵格会网络
+        // 'football', // 美国大学生橄榄球网络
+        // 'karate', // 空手道俱乐部网络
+        // 'les', // 悲惨世界网络
+        // // 德国男校网络
+        // // TI棒球队网络
+        // // SA棒球队络 
+        // 'strike', // 锯木厂工人网络
+        // 'PolActor' // 政治人物网络
         ]
-      
     },
     setContainerSize() {
       let screenWidth = document.documentElement.clientWidth ||  document.body.clientWidth;
       let screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
       document.querySelector(".graph-container").style.height = screenHeight * 0.8 + "px";
       document.querySelector(".body").style.height = screenHeight + "px";
+      document.querySelector(".aside-main").style.height = screenHeight-64 + "px";
     },
     initInterval() {
       this.second = 0;
@@ -148,6 +177,7 @@ export default {
               arr[iRandom] = mTemp;
           }
       }
+      this.$store.commit("setImagelist",arr);
       return arr;
     },
     loadSvg() {
@@ -172,6 +202,18 @@ export default {
         //_this.drawRectangle();
         
       });
+    },
+    getBcakground() {
+      axios.post("/getBackground/", {
+        name: this.imageName
+      }).then(response => {
+        let responseData = response.data
+        this.graphinfo = responseData.datum[0]
+        this.drawer = true;
+        setTimeout(() => {
+          this.drawer=false;
+        }, 10000);
+      })
     },
     Frame() {
       this.frameflag = !this.frameflag
@@ -287,19 +329,16 @@ export default {
             let responseData = response.data;
             if(responseData.state == 'fail') {
               this.$message.error('提交失败');
-            } else {
-              this.$message({
-                message: '提交成功',
-                type: 'success'
-              });
-            }
+            } 
+            // else {
+            //   this.$message({
+            //     message: '提交成功',
+            //     type: 'success',
+            //     duration: 2000
+            //   });
+            // }
           })
         })
-      }else{
-        this.$message({
-          message: '请框选出你对图中感兴趣的部分',
-          type: 'warning'
-        });
       }
       
     },
@@ -307,26 +346,32 @@ export default {
       if(this.Timerflag == 0){
         this.$message({
           message: '同学你还未开始计时做答',
-          type: 'warning'
+          type: 'warning',
+          duration: 1000
         });
         return;
-      }else if(this.Timerflag == 1){
+      }else if(this.rectangleInfo.length == 0 ){
         this.$message({
-          message: '同学你还未停止计时做答',
-          type: 'warning'
+          message: '请框选出你对图中感兴趣的部分',
+          type: 'warning',
+          duration: 1000
         });
         return;
       }
-      this.rectangleInfo = [];
-      document.getElementById("graph"+this.current).style.cssText="color:#000;font-weight: 400"
-      document.getElementById("check"+this.current).checked=false
-      document.getElementById("check"+this.current).style.visibility="hidden"
+      clearInterval(this.interval);
+      this.submit();
+      this.addTime();
       if(this.current >= this.testNum-1) {
         setTimeout(() => {
           this.$router.push({ name: 'home', params: { msg: 'test' }});
         }, 1000)
         return;
       } else {
+        this.rectangleInfo = [];
+        this.SelectedData = [];
+        document.getElementById("graph"+this.current).style.cssText="color:#000;font-weight: 400"
+        document.getElementById("check"+this.current).checked=false
+        document.getElementById("check"+this.current).style.visibility="hidden"
         this.current += 1
         this.frameflag = false
         this.Timerflag = 0
@@ -335,44 +380,30 @@ export default {
         document.getElementById("graph"+this.current).style.cssText="color:#000;font-weight: 700"
         document.getElementById("check"+this.current).checked=true
         document.getElementById("check"+this.current).style.visibility="visible"
+        this.image_id = this.images[this.current].id
+        if(this.background == 1)
+        this.getBcakground();
       }
     },
     TimeStart() {
       if(this.Timerflag == 1){
         this.$message({
           message: '同学你已开始计时做答',
-          type: 'warning'
-        });
-        return;
-      }
-      if(this.Timerflag == 2){
-        this.$message({
-          message: '同学你已完成本次做答',
-          type: 'warning'
+          type: 'warning',
+          duration: 1000
         });
         return;
       }
       this.loadSvg();
       this.$message({
           message: '计时开始',
-          type: 'success'
-        });
+          type: 'success',
+          duration: 1000
+      });
       document.getElementById("TimeStart").style.cssText="background-color:#ccc";
       this.Timerflag=1
     },
-    TimeStop() {
-      if(this.Timerflag != 1){
-        this.$message({
-          message: '同学你还未开始计时做答',
-          type: 'warning'
-        });
-        return;
-      }
-      clearInterval(this.interval);
-      this.$message({
-          message: '停止计时',
-          type: 'success'
-        });
+    addTime() {
       let timeFormat = d3.timeFormat("%Y-%m-%d %H:%M:%S");
       axios.post("/saveDuration/", {
         time: timeFormat(new Date()),
@@ -383,19 +414,18 @@ export default {
       }).then(response => {
             
       })
-      this.Timerflag=2
       document.getElementById("TimeStart").style.cssText="background-color:#fff";
     }
-    
   },
   computed: {
     imagePath: function() {
-      return "/static/images/lab12/" + this.images[this.current]+".svg";
+      return "/static/images/lab12/" + this.images[this.current].image+".svg";
     },
     imageName: function() {
       let arr = this.imagePath.split("/");
       return arr[arr.length-1];
-    }
+    },
+    ...mapGetters(["background"])
   }
 }
 </script>
@@ -404,12 +434,14 @@ export default {
 <style scoped>
 .body {
   width: 100%;
+  border: 2px solid #b4b4b4;
+  box-sizing: border-box;
 }
 .content {
   width: 100%;
 }
 .control-head{
-  background-color: #ccc;
+  background-color: #b4b4b4;
   color:#FFF;
   height: 60px;
   font-size: 24px;
@@ -417,15 +449,17 @@ export default {
   text-align: center;
 }
 .el-aside {
-    overflow-x: hidden;
-  }
-.control-container{
-  margin-top:2%;
+  overflow-x: hidden;
+  border-right: 2px solid #ccc;
 }
-
+.aside-main{
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+}
 .control-name{
   display: block;
-  padding: 10px 15px;
+  margin: 0px 10px;
   border-bottom: 1.5px solid #ccc;;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -446,40 +480,30 @@ export default {
   overflow: hidden;
 }
 
-.el-main {
-  background-color: #E9EEF3;
-  color: #333;
-  text-align: center;
-}
 
 .progress-container {
   text-align: center;
 }
 .graph-header{
-  margin-top: 3%;
+  display: flex;
+  justify-content: space-between;
   border-bottom: 2px solid #ccc;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.graph-header span{
+  margin-bottom: 0.5rem;  
 }
 .graph-container {
   width: 90%;
   height: 720px;
   margin: 1% auto;
-  border: 1px solid black;
+  border: 0.5px solid #ccc;
   position: relative;
 }
+
 .graph-container >>> .selected {
  fill: red;
-}
-.button-container {
-  width: 500px;
-  margin: 0 auto;
-  text-align: center;
-}
-.button {
-  width: 100px;
-  height: 50px;
-  font-size: 18px;
-  margin-bottom: 20px;
-  
 }
 
 #tooltip {
@@ -525,7 +549,6 @@ export default {
   border: 1px solid #DCDFE6;
   margin: 0;
   text-align: center;
-  
   border-radius: 4px;
   
 }
@@ -536,5 +559,22 @@ export default {
     background-color: #ecf5ff;
     border-color: #b4b4b4;
     outline: 0;
+}
+.background-container{
+  width: 700px;
+  margin: 0 auto;
+}
+.background-title{
+  font-size:30px;
+  font-weight:bold;
+  text-align:center;
+}
+.background-content{
+  margin-top: 2%;
+  font-size: 20px;
+  line-height: 2;
+  text-indent: 2em;WORD-WRAP: break-word;
+  TABLE-LAYOUT: fixed;
+  word-break: break-all;
 }
 </style>

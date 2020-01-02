@@ -160,13 +160,12 @@ export default {
           })
     },
     getBcakground() {
-        axios.post("/getBackground/", {
-                name: this.imageName
-            }).then(response => {
-                let responseData = response.data
-                this.graphinfo = responseData.datum[0]
-                console.log(this.graphinfo.background)
-            })
+      axios.post("/getBackground/", {
+        name: this.imageName
+      }).then(response => {
+        let responseData = response.data
+        this.graphinfo = responseData.datum[0]
+      })
     }
   },
   computed: {

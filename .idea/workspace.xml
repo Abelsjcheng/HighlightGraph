@@ -1,27 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="474ff535-125f-4044-9c12-0340650177ac" name="Default Changelist" comment="update 2019.12.22">
+    <list default="true" id="474ff535-125f-4044-9c12-0340650177ac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill1.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill2.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill3.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill4.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill4.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill5.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill5.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HighlightGraph/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/HighlightGraph/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/assets/js/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/js/http.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/HeatmapGraph.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/HeatmapGraph.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/SelectGraph.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SelectGraph.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Study.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Study.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Test.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,11 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1083">
-              <caret line="62" column="21" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
+            <state relative-caret-position="528">
+              <caret line="108" selection-start-line="108" selection-end-line="108" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -65,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HighlightGraph/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="93" column="23" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="23" />
+            <state relative-caret-position="1786">
+              <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -144,8 +130,8 @@
         <option value="D:/csulab/python/Lib/wsgiref/headers.py" />
         <option value="$PROJECT_DIR$/backend/admin.py" />
         <option value="$PROJECT_DIR$/backend/models.py" />
-        <option value="$PROJECT_DIR$/backend/views.py" />
         <option value="$PROJECT_DIR$/HighlightGraph/settings.py" />
+        <option value="$PROJECT_DIR$/backend/views.py" />
       </list>
     </option>
   </component>
@@ -161,6 +147,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -182,7 +169,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -279,7 +265,9 @@
       <workItem from="1577196320027" duration="598000" />
       <workItem from="1577257927255" duration="3680000" />
       <workItem from="1577340561788" duration="1755000" />
-      <workItem from="1577448961785" duration="722000" />
+      <workItem from="1577448961785" duration="1532000" />
+      <workItem from="1577513853231" duration="2110000" />
+      <workItem from="1577609712049" duration="723000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1576042218758</created>
@@ -309,11 +297,18 @@
       <option name="project" value="LOCAL" />
       <updated>1577010375463</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update 2019.12.27">
+      <created>1577449706303</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1577449706303</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95860000" />
+    <option name="totallyTimeSpent" value="99503000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -326,14 +321,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.39276138" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2774799" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49464524" visible="true" weight="0.32719547" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49464524" weight="0.6954674" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -357,7 +351,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="update 2019.12.22" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 2019.12.22" />
+    <MESSAGE value="update 2019.12.27" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 2019.12.27" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://D:/csulab/python/Lib/threading.py">
@@ -474,11 +469,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1083">
-          <caret line="62" column="21" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
+        <state relative-caret-position="528">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HighlightGraph/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1786">
+          <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -514,13 +516,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HighlightGraph/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="93" column="23" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="23" />
-        </state>
-      </provider>
     </entry>
   </component>
   <component name="masterDetails">
