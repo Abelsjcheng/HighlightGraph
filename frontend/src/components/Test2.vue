@@ -1,47 +1,34 @@
 <template>
   <div class="body">
     <div id="tooltip" class="hidden">
-        <p><strong>ID:</strong><strong id="value">100 </strong></p>
+        <p><strong>ID: </strong><strong id="value">100 </strong></p>
     </div>
-    <el-drawer :visible.sync="drawer" direction="btt" :close-on-press-escape="drawerclose.esc" :show-close="drawerclose.close"  size="100%">
-      <div class="background-container">
-      <p class="background-title" > {{graphinfo.graphname}}</p>
-      <p class="background-content" >{{graphinfo.background}}</p>
-      </div>
-    </el-drawer>
-    <el-container style="height:100%">
+    <el-container >
       <el-aside  width="250px">
-        <div class="control-head">Control Plane </div>
+        <div class="control-head">Control Panel </div>
         <div class="aside-main">
         <div class="control-container">
           <span class="control-name"> Datasets</span>
-          <div class="control-main">
+          <div class="control-main" v-if="background ==1" >
             <label :id="'graph'+index" v-for="(graphname,index) in images" v-bind:key="index"><input :id="'check'+index" type="checkbox" name="check" style="float:left;visibility:hidden" />{{graphname.image}}</label>
+          </div>
+          <div class="control-main" v-if="background ==0" >
+            <label :id="'graph'+index" v-for="(graphname,index) in images" v-bind:key="index"><input :id="'check'+index" type="checkbox" name="check" style="float:left;visibility:hidden" />Graph_ID: {{graphname.id}}</label>
           </div>
         </div>
         <div class="control-container">
           <span class="control-name"> Interactions</span>
           <div class="control-main">
-            <div style="margin-top:10px">
-              <span style="padding-left:15px;"> Question </span>
+            <div >
+              <span style="padding-left:15px;"> Question Switch </span>
               <div class="freeExplore">
                 <input type="button" id="next" class="bt-button" value="Next" @click="nextquestion();">
               </div>
             </div>
             <div style="margin-top:10px">
-              <span style="padding-left:15px;"> Switch </span>
+              <span style="padding-left:15px;"> Dataset Switch </span>
               <div class="freeExplore">
                 <input type="button" id="next" class="bt-button" value="Next" @click="next();">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="control-container">
-          <span class="control-name"> Timer</span>
-          <div class="control-main">
-            <div style="margin-top:10px">
-              <div class="freeExplore">
-                <button id="TimeStart" class="bt-button" @click="TimeStart();">Start</button>
               </div>
             </div>
           </div>
@@ -51,11 +38,19 @@
       <el-container>
         <el-main>
           <div class="graph-header">
-              <span style="width:142px">graph_id:{{image_id}}</span>
+              <span style="width:142px"></span>
               <span>{{question}} </span>
-              <span style="width:142px">{{quescurrent}}/{{questions.length}}</span>
+              <span  :style="{ width: '142px', visibility: queshow }"  >{{quescurrent}}/{{questions.length}}</span>
           </div>
-          <div class="graph-container"></div>
+          <div class="graph-main">
+            <div class="graph-container">
+              <div class="background-container" v-show="drawer">
+                <p class="background-title" > {{graphinfo.graphname}}</p>
+                <p class="background-content" >{{graphinfo.background}}</p>
+                <div style="position: absolute;bottom:0;width:100%" ><input type="button" id="Skip" class="bt-button" value="Skip" @click="Skip();"></div>
+              </div>
+            </div>
+          </div>
         </el-main>
       </el-container>
     </el-container>
@@ -82,22 +77,22 @@ export default {
       second: 0,
       interval: null,
       rectangleInfo: [],
-      testNum: 7,
-      frameflag: false,
-      SelectedData: [],
-      Timerflag: 0,
+      testNum: 10,
       questions: [],
       question: '',
       quescurrent: 0,
       drawer: false,
       graphinfo: '',
       drawerclose:{ 'esc':false,'close':false},
-      image_id: 0
+      closeback: null,
+      msg: '',
+      queshow: 'hidden'
     }
   },
   mounted() {
     this.$nextTick(() => {
-      this.setContainerSize();
+      this.msg = this.$route.params.msg;
+      //this.setContainerSize();
       this.initImages();
       this.getQuestions();
       if(this.background == 1){
@@ -112,15 +107,19 @@ export default {
   },
   methods: {
     initImages() {
+      if(this.msg == 'train'){
+        this.testNum = 1
+      }
       this.images = this.imagelist
-      this.image_id = this.images[this.current].id
     },
     setContainerSize() {
       let screenWidth = document.documentElement.clientWidth ||  document.body.clientWidth;
       let screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
-      document.querySelector(".graph-container").style.height = screenHeight * 0.8 + "px";
-      document.querySelector(".body").style.height = screenHeight + "px";
-      document.querySelector(".aside-main").style.height = screenHeight-64 + "px";
+      //document.querySelector(".graph-main").style.height = screenHeight -66 + "px";
+      //document.querySelector(".graph-main").style.height = 687 + "px";
+      //document.querySelector(".graph-container").style.height = 620 + "px";
+      //document.querySelector(".body").style.height = screenHeight + "px";
+      
     },
     initInterval() {
       this.second = 0;
@@ -150,24 +149,34 @@ export default {
     getQuestions() {
       axios.post("/getQuestions/", {
         name: this.imageName,
-        background: 1,
+        background: this.background,
         TestType: 2
       }).then(response => {
         let responseData = response.data
         this.questions = responseData.datum
-        this.question = this.questions[this.quescurrent].content
-        this.quescurrent++
+        if(this.background == 0){
+          this.question = this.questions[this.quescurrent].content
+          this.quescurrent++
+          this.queshow="visible"
+          this.loadSvg()
+        }
       })
     },
     getBcakground() {
+      this.question="请先阅读背景信息 (限时10秒)"
       axios.post("/getBackground/", {
         name: this.imageName
       }).then(response => {
         let responseData = response.data
         this.graphinfo = responseData.datum[0]
+        this.queshow="hidden"
         this.drawer = true;
-        setTimeout(() => {
+        this.closeback= setTimeout(() => {
           this.drawer=false;
+          this.question = this.questions[this.quescurrent].content
+          this.quescurrent++
+          this.queshow="visible"
+          this.loadSvg();
         }, 10000);
       })
     },
@@ -190,19 +199,7 @@ export default {
         .style("top", (_this.height - _this.svgHeight) / 2 + "px");
         _this.initInterval();
         _this.tooltip();
-        //_this.drawRectangle();
-        
       });
-    },
-    Frame() {
-      this.frameflag = !this.frameflag
-      if(this.frameflag == false){
-        d3.select("#select").style("border-color","#DCDFE6").style("background-color","#fff")
-        d3.select(".graph-container .brush").remove();
-      }else{
-        d3.select("#select").style("border-color","#c6e2ff").style("background-color","#ccc")
-        this.drawRectangle();
-      }
     },
     tooltip(){
       d3.selectAll("circle").nodes().forEach(function(d,index) {
@@ -225,137 +222,25 @@ export default {
             })
           })
     },
-    drawRectangle() {
-      /**
-       * 框选数据
-       */
-      this.svg.append("g")
-        .attr("class", "brush")
-        .call(d3.brush().on("end", brushended));
-
-      this.svg.append("g")
-        .attr("class", "rectangles");
-
-      let _this = this;
-      function brushended() {
-        var s = d3.event.selection;
-        let timeFormat = d3.timeFormat("%Y-%m-%d %H:%M:%S");
-        console.log(s)
-        if(s) {
-          d3.select("g.rectangles").append("rect")
-          .attr("x", s[0][0])
-          .attr("y", s[0][1])
-          .attr("width", s[1][0] - s[0][0])
-          .attr("height", s[1][1] - s[0][1])
-          .style("fill", "#777")
-          .style("fill-opacity", 0.3)
-          .style("stroke", "#fff");
-
-          _this.rectangleInfo.push({
-            name: _this.imageName,
-            time: timeFormat(new Date()),
-            x1: s[0][0],
-            y1: s[0][1],
-            x2: s[1][0],
-            y2: s[1][1]
-          })
-          let selectcircles =0
-          d3.selectAll("circle").nodes().forEach(function(d,index) {
-            let circle = d3.select(d);
-            let x = parseFloat(circle.attr("cx"));
-            let y = parseFloat(circle.attr("cy"));
-            
-            if(x > s[0][0] && x < s[1][0] && y > s[0][1] && y < s[1][1]) {
-              selectcircles ++;
-              circle.classed("selected", true);
-            }
-          })
-          _this.SelectedData.push(selectcircles)
-        }
-      }
-    },
-    redo() {
-      let rects = d3.select(".graph-container .rectangles").selectAll("rect").nodes();
-      d3.select(rects[rects.length - 1]).remove();
-      d3.select(".graph-container .brush").remove();
-      if(this.rectangleInfo.length > 0) {
-        let rectangle = this.rectangleInfo[this.rectangleInfo.length-1];
-        this.rectangleInfo.splice(this.rectangleInfo.length-1, 1);
-        d3.selectAll("circle").nodes().forEach(d => {
-          let circle = d3.select(d);
-          let x = parseFloat(circle.attr("cx"));
-          let y = parseFloat(circle.attr("cy"));
-          if(x > rectangle.x1 && x < rectangle.x2 && y > rectangle.y1 && y < rectangle.y2) {
-            circle.classed("selected", false);
-          }
-        })
-      }
-      this.SelectedData.pop();
-      if(this.frameflag == true)
-      this.drawRectangle();
-    },
-    submit() {
-      if(this.rectangleInfo.length > 0){
-        this.rectangleInfo.forEach(d => {
-          axios.post("/saveRect/", {
-            time: d.time,
-            name: d.name,
-            x1: d.x1,
-            y1: d.y1,
-            x2: d.x2,
-            y2: d.y2
-          }).then(response => {
-            let responseData = response.data;
-            if(responseData.state == 'fail') {
-              this.$message.error('提交失败');
-            } else {
-              this.$message({
-                message: '提交成功',
-                type: 'success'
-              });
-            }
-          })
-        })
-      }else{
-        this.$message({
-          message: '请框选出你对图中感兴趣的部分',
-          type: 'warning'
-        });
-      }
-    },
     nextquestion() { //下一题
-      if(this.Timerflag == 0){
+      if(this.quescurrent >= this.questions.length){
         this.$message({
-          message: '同学你还未开始计时做答',
-          type: 'warning',
-          duration: 1000
-        });
-        return;
-      }else if(this.quescurrent >= this.questions.length){
-        this.$message({
-          message: '你已完成所有任务，请点击Submit进入下一个实验',
+          message: '你已完成所有任务，请点击next进入下一个数据集',
           type: 'success',
           duration: 1000
         });
       }else{
         this.addTime();
         this.question ='';
-        this.Timerflag = 0;
         setTimeout(() => {
           this.question = this.questions[this.quescurrent].content
           this.quescurrent++
+          this.initInterval();
         }, 2000)
       }
     },
     next() {
-      if(this.Timerflag == 0){
-        this.$message({
-          message: '同学你还未开始计时做答',
-          type: 'warning',
-          duration: 1000
-        });
-        return;
-      }else if(this.quescurrent < this.questions.length){
+      if(this.quescurrent < this.questions.length){
         this.$message({
           message: '同学你还未完成本数据集的所有问题',
           type: 'warning',
@@ -364,49 +249,30 @@ export default {
         return;
       }
       this.addTime();
-      this.rectangleInfo = [];
       document.getElementById("graph"+this.current).style.cssText="color:#000;font-weight: 400"
       document.getElementById("check"+this.current).checked=false
       document.getElementById("check"+this.current).style.visibility="hidden"
       if(this.current >= this.testNum-1) {
         setTimeout(() => {
-          this.$router.push({ name: 'home', params: { msg: 'study' }});
+          if( this.msg == 'formal'){
+            this.$router.push({ name: 'experiment', params: { msg: 'test2' }});
+          }else if( this.msg == 'train'){
+            this.$router.push({ name: 'train', params: { msg: 'test2' }});
+          }
         }, 1000)
         return;
       } else {
         this.current += 1
         if(this.background == 1)
         this.getBcakground();
-        this.frameflag = false
-        this.Timerflag = 0
         this.quescurrent = 0
         d3.select("#select").style("border-color","#DCDFE6").style("background-color","#fff")
         d3.select(".graph-container").selectAll("svg").remove();
         document.getElementById("graph"+this.current).style.cssText="color:#000;font-weight: bold;"
         document.getElementById("check"+this.current).checked=true
         document.getElementById("check"+this.current).style.visibility="visible"
-        this.image_id = this.images[this.current].id
         this.getQuestions();
       }
-    },
-    TimeStart() {
-      if(this.Timerflag == 1){
-        this.$message({
-          message: '同学你已开始计时做答',
-          type: 'warning',
-          duration: 1000
-        });
-        return;
-      }
-      if(this.quescurrent == 1)
-      this.loadSvg();
-      this.$message({
-          message: '计时开始',
-          type: 'success',
-          duration: 1000
-        });
-      document.getElementById("TimeStart").style.cssText="background-color:#ccc";
-      this.Timerflag=1
     },
     addTime() {
       clearInterval(this.interval);
@@ -420,8 +286,14 @@ export default {
       }).then(response => {
             
       })
-      this.Timerflag=2
-      document.getElementById("TimeStart").style.cssText="background-color:#fff";
+    },
+    Skip(){
+      clearTimeout(this.closeback);
+      this.drawer=false;
+      this.question = this.questions[this.quescurrent].content
+      this.quescurrent++
+      this.queshow="visible"
+      this.loadSvg();
     }
     
   },
@@ -441,155 +313,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.body {
-  width: 100%;
-  border: 2px solid #b4b4b4;
-  box-sizing: border-box;
-}
-.content {
-  width: 100%;
-}
-.control-head{
-  background-color: #b4b4b4;
-  color:#FFF;
-  height: 60px;
-  font-size: 24px;
-  line-height: 60px;
-  text-align: center;
-}
-.el-aside {
-  overflow-x: hidden;
-  border-right: 2px solid #ccc;
-}
-.aside-main{
-  justify-content: space-around;
-  display: flex;
-  flex-direction: column;
-}
+@import '../assets/css/common.css';
 
 
-.control-name{
-  display: block;
-  margin: 0px 10px;
-  border-bottom: 1.5px solid #ccc;;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-size:20px;
-  font-weight: 500;
-  
-}
-
-.control-main label{
-  display: block;
-  margin:3px 25px;
-  font-size: 15px;
-}
-
-.selected-data{
-  padding: 2px 15px;
-  word-wrap: break-word;
-  word-break: break-all;
-  overflow: hidden;
-}
 
 .el-main {
   color: #333;
   text-align: center;
+  padding: 0px 20px;
 }
 
-.progress-container {
-  text-align: center;
-}
 .graph-header{
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid #ccc;
-  font-size: 1.5em;
+  height: 59px;
+  line-height: 59px;
+  font-size: 1.4em;
   font-weight: bold;
 }
-.graph-header span{
-  margin-bottom: 0.5rem;  
-}
-.graph-container {
-  width: 90%;
-  height: 720px;
-  margin: 1% auto;
-  border: 0.5px solid #ccc;
-  position: relative;
-}
 
-
-#tooltip {
-    position: absolute;
-  width: 100px;
-	height: auto;
-	padding: 10px;
-	background-color: #b4b4b4;
-    color: #fff;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	-webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-	-moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-	pointer-events: none;
-    z-index: 10000;
-}
-#tooltip.hidden {
-	display: none;
-}
-
-#tooltip p  {
-	margin: 0;
-	font-family: sans-serif;
-	font-size: 16px;
-	line-height: 20px;
-}
-.freeExplore{
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-around;
-}
-
-
-.bt-button{
-  display: inline-block;
-  width: 65px;
-  height:50px;
-  line-height: 1;
-  white-space: nowrap;
-  cursor: pointer;
-  background: #FFF;
-  border: 1px solid #DCDFE6;
-  margin: 0;
-  text-align: center;
-  border-radius: 4px;
-  
-}
-.bt-button:focus{
-  outline: 0
-}
-.bt-button:active{
-    background-color: #ecf5ff;
-    border-color: #b4b4b4;
-    outline: 0;
-}
-
-.background-container{
-  width: 700px;
-  margin: 0 auto;
-}
-.background-title{
-  font-size:30px;
-  font-weight:bold;
-  text-align:center;
-}
-.background-content{
-  margin-top: 2%;
-  font-size: 20px;
-  line-height: 2;
-  text-indent: 2em;WORD-WRAP: break-word;
-  TABLE-LAYOUT: fixed;
-  word-break: break-all;
+.graph-container >>> .selected {
+    fill: red;
 }
 </style>

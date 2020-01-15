@@ -3,11 +3,11 @@
     <el-container>
         <el-main>
             <div class="graph-header">
-                <span style="visibility:hidden;">{{current+1}}/{{images.length}} </span>
-                <span>请判断是不是熟悉的? </span>
-                <span>{{current+1}}/{{images.length}}</span>
+                <span style="width:160px">Graph_ID: {{images[current].id}}</span>
+                <span style="display: inline-block;text-align: center;width: 1176px;">请判断是不是熟悉的? </span>
+                <span style="display: inline-block;text-align: right;width:160px;">{{current+1}}/{{images.length}}</span>
             </div>
-            <div class="graph-container"></div>
+            <div class="image-container"></div>
             <div class="control-container">
                 <div class="button-container">
                     <input type="button" id="next" class="bt-button" value="Next" @click="next();">
@@ -27,7 +27,9 @@ export default {
   },
   data() {
     return {
-      images: [],
+      images: [
+          { 'id':'','image':''},
+        ],
       current: 0,
       width: null,
       height: null,
@@ -37,11 +39,13 @@ export default {
       second: 40,
       interval: null,
       percentage: 0,
+      msg: ''
     }
   },
   mounted() {
     this.$nextTick(() => {
-      this.setContainerSize();
+      this.msg = this.$route.params.msg;
+      //this.setContainerSize();
       this.initImages();
       this.shuffle(this.images);
       this.loadSvg();
@@ -49,24 +53,66 @@ export default {
   },
   methods: {
     initImages() {
-      this.images = [
-        // 好莱坞电影音乐网络
-          // 美国离婚网络
-          'sawmillM.svg', // 锯木厂网络
-          'MexicanM.svg', // 墨西哥政治精英网络
-          'kapmineM.svg', // 采矿工人网络
-          'studentM.svg', // 学生会网络
-          'polbooksM.svg', // 美国政治书籍网络
-          // 火车爆炸事件网络
-          // 网络高科技公司网络
-          // 现代数学方法网络
+      if(this.msg == 'formal'){
+        this.images = [
+          
+          { 'id':1,'image':'got_M.svg'},
+          { 'id':2,'image':'got_M_F.svg'},
+          { 'id':3,'image':'got_M_S1.svg'},
+          { 'id':4,'image':'got_M_S2.svg'},
+          { 'id':5,'image':'quakers_M.svg'},
+          { 'id':6,'image':'quakers_M_F.svg'},
+          { 'id':7,'image':'quakers_M_S1.svg'},
+          { 'id':8,'image':'quakers_M_S2.svg'},
+          { 'id':9,'image':'foorball_M.svg'},
+          { 'id':10,'image':'foorball_M_F.svg'},
+          { 'id':11,'image':'football_M_S1.svg'},
+          { 'id':12,'image':'football_M_S2.svg'},
+          { 'id':13,'image':'karate_M.svg'},
+          { 'id':14,'image':'karate_M_F.svg'},
+          { 'id':15,'image':'karate_M_S1.svg'},
+          { 'id':16,'image':'karate_M_S2.svg'},
+          { 'id':17,'image':'plo_M.svg'},
+          { 'id':18,'image':'plo_M_F.svg'},
+          { 'id':19,'image':'plo_M_S1.svg'},
+          { 'id':20,'image':'plo_M_S2.svg'},
+          { 'id':21,'image':'high_M.svg'},
+          { 'id':22,'image':'high_M_F.svg'},
+          { 'id':23,'image':'high_M_S1.svg'},
+          { 'id':24,'image':'high_M_S2.svg'},
+          { 'id':25,'image':'TI_M.svg'},
+          { 'id':26,'image':'TI_M_F.svg'},
+          { 'id':27,'image':'TI_M_S1.svg'},
+          { 'id':28,'image':'TI_M_S2.svg'},
+          { 'id':29,'image':'strike_M.svg'},
+          { 'id':30,'image':'strike_M_F.svg'},
+          { 'id':31,'image':'strike_M_S1.svg'},
+          { 'id':32,'image':'strike_M_S2.svg'},
+          { 'id':33,'image':'polactor_M.svg'},
+          { 'id':34,'image':'polactor_M_F.svg'},
+          { 'id':35,'image':'polactor_M_S1.svg'},
+          { 'id':36,'image':'polactor_M_S2.svg'},
+          { 'id':37,'image':'dol_M.svg'},
+          { 'id':38,'image':'dol_M_F.svg'},
+          { 'id':39,'image':'dol_M_S1.svg'},
+          { 'id':40,'image':'dol_M_S2.svg'},
         ]
+      }
+      else if(this.msg == 'train'){
+        this.images=[
+          { 'id':1,'image':'kan_M.svg'},
+          { 'id':2,'image':'kan_M_F.svg'},
+          { 'id':3,'image':'kan_M_S1.svg'},
+          { 'id':4,'image':'kan_M_S2.svg'},
+        ]
+      }
     },
     setContainerSize() {
       let screenWidth = document.documentElement.clientWidth ||  document.body.clientWidth;
       let screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
-      document.querySelector(".graph-container").style.height = screenHeight * 0.7 + "px";
-      document.querySelector(".body").style.height = screenHeight + "px";
+      //document.querySelector(".graph-container").style.height = screenHeight * 0.7 + "px";
+      
+      //document.querySelector(".body").style.height = screenHeight + "px";
     },
     initInterval() {
       this.second = 0;
@@ -75,7 +121,7 @@ export default {
       }, 1000)
     },
     getSize() {
-      let parentNode = document.querySelector(".graph-container");
+      let parentNode = document.querySelector(".image-container");
       this.width = parentNode.clientWidth;
       this.height = parentNode.clientHeight;
     },
@@ -91,21 +137,21 @@ export default {
               arr[iRandom] = mTemp;
           }
       }
-      console.log(arr)
-      var arr2 = arr;
-      for(let j = 0;j<iLength;j++){
-        iRandom = (Math.floor(Math.random() * 3) + 2)+j;
-        arr.splice(iRandom,0,arr2[j])
-      }
-      console.log(arr)
+      // console.log(arr)
+      // var arr2 = arr;
+      // for(let j = 0;j<iLength;j++){
+      //   iRandom = (Math.floor(Math.random() * 3) + 2)+j;
+      //   arr.splice(iRandom,0,arr2[j])
+      // }
+      // console.log(arr)
       return arr;
     },
     loadSvg() {
       let _this = this;
       this.getSize();
       d3.xml(_this.imagePath).then(function(xml) {
-        document.querySelector(".graph-container").appendChild(xml.documentElement);
-        _this.svg = d3.select(".graph-container svg");
+        document.querySelector(".image-container").appendChild(xml.documentElement);
+        _this.svg = d3.select(".image-container svg");
         let svgWidth = _this.svg.attr("width");
         let svgHeight = _this.svg.attr("height");
         let margin = {left: 20, right: 20, top: 20, bottom: 20}
@@ -138,12 +184,16 @@ export default {
       }
       if(this.current >= this.images.length-1) {
         setTimeout(() => {
-          this.$router.push({ name: 'home', params: { msg: 'expertment' }});
+          if( this.msg == 'formal'){
+            this.$router.push({ name: 'home', params: { msg: 'expertment' }});
+          }else if( this.msg == 'train'){
+            this.$router.push({ name: 'home', params: { msg: 'train' }});
+          }
         }, 1000)
         return;
       } else {
         this.current += 1;
-        d3.select(".graph-container").selectAll("svg").remove();
+        d3.select(".image-container").selectAll("svg").remove();
         setTimeout(() => {
           this.loadSvg();
         }, 2000)
@@ -158,7 +208,7 @@ export default {
   // },
   computed: {
     imagePath: function() {
-      return "/static/images/lab3/" + this.images[this.current];
+      return "/static/images/lab3/" + this.images[this.current].image;
     },
     imageName: function() {
       let arr = this.imagePath.split("/");
@@ -180,17 +230,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.body {
-  width: 100%;
-  border: 2px solid #b4b4b4;
-  box-sizing: border-box;
-}
+
 .content {
   width: 100%;
   padding: 20px;
 }
 .progress-container {
   text-align: center;
+}
+.el-main{
+      padding: 0 20px;
 }
 #second {
   position: absolute;
@@ -204,20 +253,20 @@ export default {
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid #ccc;
+  height: 59px;
+  line-height: 59px;
   font-size: 1.5em;
   font-weight: bold;
 }
-.graph-header span{
-  margin-bottom: 0.5rem;  
-}
-.graph-container {
-  width: 70%;
-  height: 720px;
-  margin: 3% auto;
+
+.image-container {
+  width: 900px;
+  height: 580px;
+  margin: 20px auto;
   border: 0.5px solid #ccc;
   position: relative;
 }
-.graph-container >>> .selected {
+.image-container >>> .selected {
  fill: red;
 }
 .button-container {
@@ -237,7 +286,7 @@ export default {
 
 .bt-button{
   display: inline-block;
-  width: 70px;
+  width: 90px;
   height:50px;
   line-height: 1;
   white-space: nowrap;

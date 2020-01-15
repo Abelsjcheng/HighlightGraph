@@ -10,7 +10,11 @@ import Study from '../components/Study'
 import SelectGraph from '../components/SelectGraph'
 import Test3 from '../components/Test3'
 import Test2 from '../components/Test2'
+import Train from '../components/train'
+import Experiment from '../components/experiment'
 Vue.use(VueRouter)
+
+
 
 const router = new VueRouter({
   routes: [
@@ -23,8 +27,15 @@ const router = new VueRouter({
     { path: '/Test2', name: 'Test2', component: Test2 },
     { path: '/heatmap', name: 'heatmap', component: HeatmapGraph },
     { path: '/home', name: 'home', component: Home },
+    { path: '/train', name: 'train', component: Train },
+    { path: '/experiment', name: 'experiment', component: Experiment },
     { path:'/', redirect:'/home' }
   ]
 });
+
+const routerPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return routerPush.call(this, location).catch(error=> error)
+}
 
 export default router;

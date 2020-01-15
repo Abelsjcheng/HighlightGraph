@@ -1,8 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="474ff535-125f-4044-9c12-0340650177ac" name="Default Changelist" comment="">
+    <list default="true" id="474ff535-125f-4044-9c12-0340650177ac" name="Default Changelist" comment="update 2019.12.31">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HighlightGraph/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/HighlightGraph/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab12/PolActor.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab12/PolActor.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab12/football.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab12/football.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab12/got.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab12/got.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab12/karate.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab12/karate.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab12/les.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab12/quakers.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab12/quakers.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab12/strike.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/static/images/lab12/strike.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/Mexican.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/Mexican1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/Mexican2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/Mexican3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/Mexican4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/Mexican5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/MexicanM.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/MexicanM1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/MexicanM2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/MexicanM3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/MexicanM4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/MexicanM5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/MexicanY.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/kapmine.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/kapmine1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/kapmine2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/kapmine3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/kapmine4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/kapmine5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/kapmineM.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/kapmineM1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/kapmineM2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/kapmineM3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/kapmineM4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/kapmineM5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/kapmineY.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/polbooks.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/polbooks1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/polbooks2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/polbooks3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/polbooks4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/polbooks5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/polbooksM.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/polbooksM1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/polbooksM2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/polbooksM3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/polbooksM4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/polbooksM5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/polbooksY.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmill5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmillM.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmillM1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmillM2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmillM3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmillM4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmillM5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/sawmillY.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/student.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/student1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/student2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/student3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/student4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/student5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/studentM.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/studentM1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/studentM2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/studentM3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/studentM4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/studentM5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/static/images/lab3/studentY.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/HeatmapGraph.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/HeatmapGraph.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Introduction.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Introduction.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Study.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Study.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Test.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Test2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Test2.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Test3.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Test3.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,8 +121,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="98" column="15" lean-forward="true" selection-start-line="98" selection-start-column="15" selection-end-line="98" selection-end-column="15" />
+            <state relative-caret-position="228">
+              <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -49,8 +133,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HighlightGraph/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1786">
-              <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
+            <state relative-caret-position="125">
+              <caret line="97" selection-start-line="97" selection-end-line="97" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HighlightGraph/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HighlightGraph/wsgi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#230#239#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,15 +162,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="41" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="41" />
+            <state relative-caret-position="209">
+              <caret line="11" column="14" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/apps.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/conf/global_settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5643">
+              <caret line="297" column="64" selection-start-line="297" selection-start-column="64" selection-end-line="297" selection-end-column="64" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -82,17 +190,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/__init__.py">
+        <entry file="file://$PROJECT_DIR$/backend/apps.py">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/csulab/python/Lib/wsgiref/headers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2698">
-              <caret line="142" selection-start-line="142" selection-end-line="142" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/backend/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -110,6 +214,11 @@
       <find>usetime</find>
       <find>iso-8859-1</find>
       <find>current_user</find>
+      <find>TEMPLATES_D</find>
+      <find>handler</find>
+      <find>pymysql</find>
+      <find>set_cookie</find>
+      <find>get</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -131,10 +240,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="255" />
-    <option name="width" value="960" />
-    <option name="height" value="515" />
+    <option name="x" value="220" />
+    <option name="y" value="75" />
+    <option name="width" value="1740" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -160,6 +269,41 @@
               <item name="HighlightGraph" type="462c0819:PsiDirectoryNode" />
               <item name="HighlightGraph" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="HighlightGraph" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HighlightGraph" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HighlightGraph" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HighlightGraph" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HighlightGraph" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HighlightGraph" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HighlightGraph" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HighlightGraph" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="django" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HighlightGraph" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HighlightGraph" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="django" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -169,7 +313,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/csulab/实验/GraphGenerators" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -263,7 +407,16 @@
       <workItem from="1577448961785" duration="1532000" />
       <workItem from="1577513853231" duration="2110000" />
       <workItem from="1577609712049" duration="723000" />
-      <workItem from="1577941441886" duration="639000" />
+      <workItem from="1577941441886" duration="2030000" />
+      <workItem from="1578058478546" duration="1150000" />
+      <workItem from="1578114313118" duration="636000" />
+      <workItem from="1578202017235" duration="1222000" />
+      <workItem from="1578316816407" duration="10276000" />
+      <workItem from="1578491222039" duration="661000" />
+      <workItem from="1578561100885" duration="1299000" />
+      <workItem from="1578659558596" duration="186000" />
+      <workItem from="1578667378293" duration="616000" />
+      <workItem from="1578722180118" duration="2044000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1576042218758</created>
@@ -307,11 +460,18 @@
       <option name="project" value="LOCAL" />
       <updated>1577941494049</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update 2019.12.31">
+      <created>1577947111881</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1577947111881</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100142000" />
+    <option name="totallyTimeSpent" value="119750000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -326,12 +486,12 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28150135" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19839142" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49464524" weight="0.6954674" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49464524" weight="0.39518413" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -452,16 +612,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HighlightGraph/__init__.py">
+    <entry file="file://D:/csulab/python/Lib/wsgiref/headers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        <state relative-caret-position="2698">
+          <caret line="142" selection-start-line="142" selection-end-line="142" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HighlightGraph/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
+        <state relative-caret-position="532">
           <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
           <folding>
             <element signature="e#638#670#0" expanded="true" />
@@ -469,35 +636,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HighlightGraph/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/views.py">
+    <entry file="file://$PROJECT_DIR$/HighlightGraph/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="98" column="15" lean-forward="true" selection-start-line="98" selection-start-column="15" selection-end-line="98" selection-end-column="15" />
+        <state relative-caret-position="19">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HighlightGraph/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#230#239#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/conf/global_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5643">
+          <caret line="297" column="64" selection-start-line="297" selection-start-column="64" selection-end-line="297" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/HighlightGraph/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1786">
-          <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
+        <state relative-caret-position="125">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="41" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/admin.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -509,18 +679,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/__init__.py">
+    <entry file="file://$PROJECT_DIR$/backend/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/csulab/python/Lib/wsgiref/headers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2698">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

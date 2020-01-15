@@ -7,6 +7,7 @@ const store = new Vuex.Store({
 	state: {
 		username: null,
 		background: null,
+		imagelist:null
 	},
 	getters: {
 		background:state => state.background,

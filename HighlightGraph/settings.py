@@ -95,6 +95,8 @@ DATABASES = {
         'PASSWORD': '85533450',  # 密码
         'HOST': 'localhost',  # mysql服务所在的主机ip
         'PORT': '3306',         # mysql服务端口
+
+
     }
 }
 

@@ -1,40 +1,38 @@
 <template>
   <div class="body">
+    <div class="header">
+      <span><a href="/">Evaluation System</a></span>
+      <el-button style="float:right;margin-top:10px;margin-right: 1%;" round @click="signout">Sign out </el-button>
+    </div>
     <div class="content">
       <div class="processing_container"><p id="processing">Processing</p></div>
       <div class="mutiple-progress-container">
         <div class="mutiple-progress">
           <div class="circle-container">
-            <div class="circle" @click="toIntro();"></div>
-            <p class="number" @click="toIntro();">I</p>
+            <div class="circle" @click="toIntro();"><label class="number" @click="toIntro();">I</label></div>
+            
+            <label style="position: absolute;left: -15px;margin-top: 5px;">Introduction </label>
           </div>
           <div class="progress">
             <el-progress :show-text="false" :stroke-width="20" :percentage="intro_percentage" color="#ccc"></el-progress>
           </div>
           <div class="circle-container">
-            <div class="circle" @click="toTest1();"></div>
-            <p class="number" @click="toTest1();">1</p>
+            <div class="circle" @click="toTrain();"><label class="number" @click="toTrain();">1</label></div>
+            <label style="position: absolute;left: 7px;margin-top: 5px;">Train </label>
           </div>
           <div class="progress">
-            <el-progress :show-text="false" :stroke-width="20" :percentage="test1_percentage" color="#ccc"></el-progress>
+            <el-progress :show-text="false" :stroke-width="20" :percentage="train_percentage" color="#ccc"></el-progress>
           </div>
           <div class="circle-container">
-            <div class="circle" @click="toTest2();"></div>
-            <p class="number" @click="toTest2();">2</p>
+            <div class="circle" @click="toExperiment();"><label class="number" @click="toExperiment();">2</label></div>
+            <label style="position: absolute;width: 100px;left: -20px;margin-top: 5px;">Experiment </label>
           </div>
           <div class="progress">
-            <el-progress :show-text="false" :stroke-width="20" :percentage="test2_percentage" color="#ccc"></el-progress>
+            <el-progress :show-text="false" :stroke-width="20" :percentage="expertment_percentage" color="#ccc"></el-progress>
           </div>
           <div class="circle-container">
-            <div class="circle" @click="toStudy();"></div>
-            <p class="number" @click="toStudy();">S</p>
-          </div>
-          <div class="progress">
-            <el-progress :show-text="false" :stroke-width="20" :percentage="study_percentage" color="#ccc"></el-progress>
-          </div>
-          <div class="circle-container">
-            <div class="circle" @click="toSelectGraph();"></div>
-            <p class="number" @click="toSelectGraph();">3</p>
+            <div class="circle" @click="toHeatmap();"><label class="number" @click="toHeatmap();">H</label></div>
+            <label style="position: absolute;width: 120px;left: -30px;margin-top: 5px;">Result Review</label>
             <!-- <div>
                 <select @change="changeExperiment();">
                     <option value="1">A</option>
@@ -43,11 +41,11 @@
                 </select>
             </div> -->
           </div>
-          
+          <!--
           <div class="circle-container-toHeat">
             <div class="circle" @click="toHeatmap();"></div>
             <p class="number" @click="toHeatmap();">H</p>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -55,7 +53,8 @@
       title="Sign up"
       :visible.sync="dialogVisible"
       width="60%"
-      :show-close="false">
+      :show-close="false"
+      :close-on-click-modal="false">
       <el-form size="medium" label-position="left" :model="form" :rules="rules" ref="ruleForm" label-width="110px" class="demo-ruleForm">
         <el-form-item label="Name" prop="name">
           <el-input v-model="form.name"></el-input>
@@ -98,7 +97,7 @@
 <script>
 import * as d3 from "d3"
 import axios from '../assets/js/http'
-
+import { mapGetters } from 'vuex'
 export default {
   name: 'Home',
   props: {
@@ -106,9 +105,8 @@ export default {
   data() {
     return {
 			intro_percentage: 0,
-      test1_percentage: 0,
-      test2_percentage: 0,
-      study_percentage: 0,
+      train_percentage: 0,
+      expertment_percentage: 0,
       dialogVisible: false,
       form: {
         name: '',
@@ -152,21 +150,14 @@ export default {
         case 'intro':
           this.intro_percentage = 100;
           break;
-        case 'test':
+        case 'train':
           this.intro_percentage = 100;
-          this.test1_percentage = 100;
-          break;
-        case 'study':
-          this.intro_percentage = 100;
-          this.test1_percentage = 100;
-          this.test2_percentage = 100;
+          this.train_percentage = 100;
           break;
         case 'expertment':
           this.intro_percentage = 100;
-          this.test1_percentage = 100;
-          this.test2_percentage = 100;
-          this.study_percentage = 100;
-          // this.signout();
+          this.train_percentage = 100;
+          this.expertment_percentage = 100;
           break;
         default:
           break;
@@ -178,36 +169,19 @@ export default {
       this.isLogged();
 			this.$router.push('/intro');
 		},
-		toTest1() {
+		toTrain() {
 			if(this.intro_percentage == 0) {
 				alert("请按序操作...")
 				return;
 			}
-			this.$router.push('/test');
+			this.$router.push('/train');
     },
-    toTest2() {
-			if(this.intro_percentage == 0 || this.test1_percentage == 0) {
+    toExperiment() {
+      if(this.train_percentage == 0) {
 				alert("请按序操作...")
 				return;
 			}
-			this.$router.push('/test2');
-    },
-    toStudy() {
-      this.$router.push('/Study');
-    },
-    toSelectGraph() {
-      if( this.test2_percentage == 0 || this.test1_percentage == 0 ) {
-				alert("请按序操作...")
-				return;
-			}
-      this.$router.push('/Test3');
-    },
-		toExperiment() {
-			if(this.intro_percentage == 0 || this.test_percentage == 0) {
-				alert("请按序操作...")
-				return;
-			}
-			this.$router.push('/nodelink');
+			this.$router.push('/experiment');
     },
     toHeatmap() {
       this.$router.push('/heatmap');
@@ -240,7 +214,8 @@ export default {
       axios.get('/signout/')
         .then(response => {
           if(response.data == 'OK') {
-            // alert("sign out")
+            alert("sign out")
+            window.location.href="/";
           }
         })
     },
@@ -253,9 +228,11 @@ export default {
           this.dialogVisible = true;
         }
       })
-    }
+    },
+    
   },
   computed: {
+    ...mapGetters(["background"])
   }
 }
 </script>
@@ -324,5 +301,22 @@ export default {
   line-height: 50px;
   margin-top: -50px;
   cursor: pointer;
+}
+
+.header {
+  width: 100%;
+  height: 20%;
+  background-color: #ccc;
+}
+.header a {
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 60px;
+  color: white;
+  margin-left: 1%;
+  text-decoration: none;
+}
+.signout{
+  float: right;
 }
 </style>

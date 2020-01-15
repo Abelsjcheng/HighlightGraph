@@ -1,13 +1,11 @@
 <template>
   <div class="body">
     <div class="content">
-      <div class="graph-container"></div>
-      <div class="control-container">
+      <div class="image-container"></div>
         <div class="button-container">
-          <input type="button" id="previous" class="button" value="Previous" @click="previous();">
-          <input type="button" id="next" class="button" value="Next" @click="next();">
+          <input type="button" id="previous" class="bt-button" value="Previous" @click="previous();">
+          <input type="button" id="next" class="bt-button" value="Next" @click="next();">
         </div>
-      </div>
     </div>
   </div>
 </template>
@@ -41,34 +39,34 @@ export default {
   methods: {
     initImages() {
       this.images = [
-        'got.svg', // 权力的游戏网络
-        'quakers.svg', // 贵格会网络
-        'football.svg', // 美国大学生橄榄球网络
-        'karate.svg', // 空手道俱乐部网络
-        'les.svg', // 悲惨世界网络
-        // 德国男校网络
-        // TI棒球队网络
-        // SA棒球队络 
-        'strike.svg', // 锯木厂工人网络
-        'PolActor.svg' // 政治人物网络
+          'got.svg',//权力的游戏网络
+          'quakers.svg',  //贵格会网络
+          'football.svg', //美国大学生橄榄球网络
+          'karate.svg', //空手道俱乐部网络
+          'plo.svg', //美国政治书籍网络
+          'high.svg', // 德国男校网络
+          'TI.svg', //TI棒球队网络
+          'strike.svg',   //锯木厂工人网络
+          'polactor.svg',  //政治人物网络
+          'dol.svg' //海豚网络
         ]
     },
     getSize() {
-      let parentNode = document.querySelector(".graph-container");
+      let parentNode = document.querySelector(".image-container");
       this.width = parentNode.clientWidth;
       this.height = parentNode.clientHeight;
     },
     setContainerSize() {
       let screenWidth = document.documentElement.clientWidth ||  document.body.clientWidth;
       let screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
-      document.querySelector(".graph-container").style.height = screenHeight * 0.7 + "px";
+      //document.querySelector(".image-container").style.height = screenHeight * 0.7 + "px";
     },
     loadSvg() {
       let _this = this;
       this.getSize();
       d3.xml(_this.imagePath).then(function(xml) {
-        document.querySelector(".graph-container").appendChild(xml.documentElement);
-        _this.svg = d3.select(".graph-container svg");
+        document.querySelector(".image-container").appendChild(xml.documentElement);
+        _this.svg = d3.select(".image-container svg");
         let svgWidth = _this.svg.attr("width");
         let svgHeight = _this.svg.attr("height");
         let margin = {left: 20, right: 20, top: 20, bottom: 20}
@@ -95,7 +93,7 @@ export default {
     createHeatmap() {
       let heatmapDiv = document.createElement("div");
       heatmapDiv.id = "heatmap";
-      document.querySelector(".graph-container").appendChild(heatmapDiv);
+      document.querySelector(".image-container").appendChild(heatmapDiv);
       let heatmap = d3.select("#heatmap")
         .style("width", this.svgWidth + "px")
         .style("height", this.svgHeight + "px")
@@ -171,18 +169,20 @@ export default {
         return;
       }
       this.current -= 1;
-      d3.select(".graph-container").selectAll("svg").remove();
-      d3.select(".graph-container").selectAll("#heatmap").remove();
+      d3.select(".image-container").selectAll("svg").remove();
+      d3.select(".image-container").selectAll("#heatmap").remove();
       this.loadSvg();
     },
     next() {
       if(this.current >= this.images.length-1) {
-        alert("最后一张...");
+        setTimeout(() => {
+          this.$router.push({ name: 'home', params: { msg: 'expertment' }});
+        }, 1000)
         return;
       }
       this.current += 1;
-      d3.select(".graph-container").selectAll("svg").remove();
-      d3.select(".graph-container").selectAll("#heatmap").remove();
+      d3.select(".image-container").selectAll("svg").remove();
+      d3.select(".image-container").selectAll("#heatmap").remove();
       document.querySelector("#previous").disabled = "disabled"
       document.querySelector("#next").disabled = "disabled"
       this.loadSvg();
@@ -211,11 +211,11 @@ export default {
 .content {
   width: 100%;
 }
-.graph-container {
-  width: 70%;
-  height: 720px;
-  margin: 3% auto;
-  border: 1px solid black;
+.image-container {
+  width: 65%;
+  height: 600px;
+  margin: 2% auto;
+  border: 0.5px solid #ccc;
   position: relative;
 }
 .button-container {

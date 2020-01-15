@@ -14,9 +14,9 @@ def register(request):
 		print(params)
 		if not request.COOKIES.get('current_user'):
 			try:
-				models.Username.objects.create(username=params['name'], education=params['education'], age=params['age'], sex=params['sex'], research=params['research'])
+				models.Username.objects.create(username=params['name'], education=params['education'], age=params['age'], sex=params['sex'], research=params['research'], background=params['background'])
 				response = HttpResponse("OK")
-				response.set_cookie('current_user', params['name'])
+				response.set_cookie('current_user', params['name'].encode('utf-8').decode('latin-1'))
 				print(response)
 				return response
 			except :
@@ -29,7 +29,7 @@ def saveRect(request):
 		params = json.loads(request.body)
 		# print(params)
 		try:
-			username = models.Username.objects.get(username=request.COOKIES.get('current_user'))
+			username = models.Username.objects.get(username=request.COOKIES.get('current_user').encode('latin-1').decode('utf-8'))
 			models.Rectangle.objects.create(time=params['time'], name=params['name'], x1=params['x1'], y1=params['y1'], x2=params['x2'], y2=params['y2'], username=username)
 			return HttpResponse(json.dumps({'state': 'success'}), content_type='application/json')
 		except:
@@ -42,7 +42,7 @@ def saveDuration(request):
 
 		try:
 			# now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())) 
-			username = models.Username.objects.get(username=request.COOKIES.get('current_user'))
+			username = models.Username.objects.get(username=request.COOKIES.get('current_user').encode('latin-1').decode('utf-8'))
 			print(params)
 			models.Duration.objects.create(time=params['time'], name=params['name'], consumingtime=params['consumingtime'], username=username, qid=params['qid'], TestType=params['TestType'])
 			return HttpResponse(json.dumps({'state': 'success'}), content_type='application/json')
@@ -53,7 +53,7 @@ def readRect(request):
 	if request.method == 'POST':
 		params = json.loads(request.body)
 		print(params)
-		username = models.Username.objects.get(username=request.COOKIES.get('current_user'))
+		username = models.Username.objects.get(username=request.COOKIES.get('current_user').encode('latin-1').decode('utf-8'))
 		filter_data = models.Rectangle.objects.filter(name=params['name'], username_id=username).values()
 		print(username)
 		print(filter_data)
@@ -92,7 +92,7 @@ def saveanswer(request):
 		params = json.loads(request.body)
 		try:
 			qid = models.Questions.objects.get(qid=params['qid'])
-			username = models.Username.objects.get(username=request.COOKIES.get('current_user'))
+			username = models.Username.objects.get(username=request.COOKIES.get('current_user').encode('latin-1').decode('utf-8'))
 			print(params)
 			models.Answers.objects.create(time=params['time'], name=params['name'], answer=params['answer'], x1=params['x1'], y1=params['y1'], x2=params['x2'], y2=params['y2'], qid=qid, consumingtime=params['consumingtime'], username=username, TestType=params['TestType'])
 			return HttpResponse(json.dumps({'state': 'success'}), content_type='application/json')
